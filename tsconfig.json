@@ -4,6 +4,8 @@
     "paths": {
       "@pages/*":["./src/pages/*"],
       "@test/*":["./src/test/*"],
+      "@lib/*":["./src/lib/*"],
+      "@content/*":["./src/content/*"],
       "@test/":["./src/test/*"],
     },
     "target": "es5",
