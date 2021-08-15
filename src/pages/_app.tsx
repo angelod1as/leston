@@ -20,6 +20,8 @@ function App({ Component, pageProps }: AppProps) {
 function FirstHead() {
   return (
     <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
       {/* FAVICON */}
       {/* <link rel="icon" href="/favicon.ico" />
       <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />

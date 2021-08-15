@@ -13,7 +13,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/fonts/Union-Regular.ttf"
+            href="/fonts/Union-Regular.otf"
             as="font"
             crossOrigin=""
           />

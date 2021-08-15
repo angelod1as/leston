@@ -11,7 +11,7 @@
 }
 @font-face {
   font-family: 'Union';
-  src: url('/fonts/Union-Regular.ttf');
+  src: url('/fonts/Union-Regular.otf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -19,4 +19,21 @@
 
 body {
   font-family: Union, Arial, sans-serif;
+  letter-spacing: 0.02em;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.union {
+  font-family: Union, Arial, sans-serif;
+  letter-spacing: 0.02em;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.times {
+  font-family: Times, 'Times New Roman', serif;
+  letter-spacing: 0.03em;
+  font-size: 21px;
+  line-height: 22px;
 }
