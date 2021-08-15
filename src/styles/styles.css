@@ -17,23 +17,29 @@
   font-display: swap;
 }
 
-body {
-  font-family: Union, Arial, sans-serif;
-  letter-spacing: 0.02em;
-  font-size: 20px;
-  line-height: 22px;
+@layer base {
+  body {
+    font-family: Union, Arial, sans-serif;
+    letter-spacing: 0.02em;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .union {
+    font-family: Union, Arial, sans-serif;
+    letter-spacing: 0.02em;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .times {
+    font-family: Times, 'Times New Roman', serif;
+    letter-spacing: 0.03em;
+    font-size: 21px;
+    line-height: 22px;
+  }
 }
 
-.union {
-  font-family: Union, Arial, sans-serif;
-  letter-spacing: 0.02em;
-  font-size: 20px;
-  line-height: 22px;
-}
-
-.times {
-  font-family: Times, 'Times New Roman', serif;
-  letter-spacing: 0.03em;
-  font-size: 21px;
-  line-height: 22px;
+h2 {
+  @apply union uppercase text-[34px] leading-[37px];
 }
