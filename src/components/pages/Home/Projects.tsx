@@ -7,7 +7,7 @@ type Props = {
 
 export default function Projects({ projects }: Props) {
   return (
-    <div className="my-16 mx-10">
+    <div className="my-16 mx-10" id="projects">
       {projects.map(({ compiledSource, scope }, idx) => {
         if (!scope) {
           return null

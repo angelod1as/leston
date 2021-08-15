@@ -14,7 +14,7 @@ export default function Footer({
   handleToggleAbout,
 }: Props) {
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white">
+    <div className="fixed bottom-0 left-0 w-full bg-white z-10">
       <button
         onClick={handleToggleAbout}
         className="w-full h-5 block"
