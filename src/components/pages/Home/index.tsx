@@ -1,11 +1,17 @@
+import { MdxProjects } from 'src/@types/types'
 import Header from './Header'
+import Projects from './Projects'
 
-export default function Home() {
+type Props = {
+  projects: MdxProjects[]
+}
+
+export default function Home({ projects }: Props) {
   return (
     <div>
-      <div>
-        <Header />
-      </div>
+      <Header />
+
+      <Projects projects={projects} />
     </div>
   )
 }
