@@ -40,7 +40,7 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 0,
-    '@typescript-eslint/no-explicit-any': 0,
+    // '@typescript-eslint/no-explicit-any': 0,
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'jsx-a11y/anchor-is-valid': [
       'error',
