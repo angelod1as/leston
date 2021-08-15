@@ -4,11 +4,12 @@ import '@testing-library/jest-dom'
 
 // Add in any providers here if necessary:
 // (ReduxProvider, ThemeProvider, etc)
-const Providers = ({ children }) => {
+const Providers: React.FC = ({ children }) => {
   return <>{children}</>
 }
 
-const customRender = (ui, options = {}) =>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const customRender = (ui: any, options = {}) =>
   render(ui, { wrapper: Providers, ...options })
 
 // re-export everything

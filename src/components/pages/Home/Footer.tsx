@@ -1,5 +1,4 @@
 import { MDXRemote } from 'next-mdx-remote'
-import { useState } from 'react'
 import { About } from 'src/@types/types'
 
 type Props = {
