@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import '../styles/styles.css'
 // import { useState } from 'react'
 
 function App({ Component, pageProps }: AppProps) {
