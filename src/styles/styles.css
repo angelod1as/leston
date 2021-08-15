@@ -43,3 +43,16 @@
 h2 {
   @apply union uppercase text-[34px] leading-[37px];
 }
+
+i,
+em {
+  @apply times;
+}
+
+button {
+  @apply block;
+}
+
+button:hover {
+  @apply opacity-70 transition-opacity;
+}

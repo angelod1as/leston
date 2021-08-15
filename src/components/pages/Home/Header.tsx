@@ -1,15 +1,21 @@
-export default function Header() {
+type Props = {
+  handleToggleAbout: () => void
+}
+
+export default function Header({ handleToggleAbout }: Props) {
   return (
     <div className="text-white bg-black h-screen flex flex-col justify-between items-center">
-      <div className="flex justify-between py-6 px-14 w-full">
+      <div className="flex justify-between items-start py-6 px-14 w-full">
         <p>
           <span className="times">Artist</span>, Musician,
           <br />
           <span className="times">Multimedia Developer</span>,<br />
           Creative Technologist
         </p>
-        <p className="times">About</p>
-        <p>Archive</p>
+        <button className="times" onClick={handleToggleAbout}>
+          About
+        </button>
+        <button onClick={handleToggleAbout}>Archive</button>
         <p>
           hello@matheusleston.com <br />
           @matheusleston

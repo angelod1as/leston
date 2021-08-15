@@ -1,14 +1,15 @@
 import { serialize } from 'next-mdx-remote/serialize'
-import { getProjects } from '@lib/api'
+import { getProjects, getAbout } from '@lib/api'
 import Home from '@components/pages/Home'
-import { MdxProjects } from 'src/@types/types'
+import { About, MdxProjects } from 'src/@types/types'
 
 type Props = {
   projects: MdxProjects[]
+  about: About
 }
 
-const Index = ({ projects }: Props) => {
-  return <Home projects={projects} />
+const Index = ({ projects, about }: Props) => {
+  return <Home projects={projects} about={about} />
 }
 
 export default Index
@@ -22,5 +23,13 @@ export async function getStaticProps() {
     )
   )
 
-  return { props: { projects } }
+  const aboutData = getAbout(['content'])
+
+  const [about, contact] = await Promise.all(
+    aboutData.map(
+      async ({ content, data }) => await serialize(content, { scope: data })
+    )
+  )
+
+  return { props: { projects, about: { about, contact } } }
 }

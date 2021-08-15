@@ -5,16 +5,17 @@ import { FileData, FrontMatter } from 'src/@types/types'
 
 const contentDir = join(process.cwd(), 'src', 'content')
 const projectsDir = join(contentDir, 'projects')
-
-function getProjectsSlugs() {
-  return fs.readdirSync(projectsDir)
-}
+const aboutDir = join(contentDir, 'about')
 
 type Fields = keyof FrontMatter | 'content'
 
-const getPostBySlug = (slug: string, fields: Array<Fields> = []): FileData => {
+const getContent = (
+  slug: string,
+  fields: Array<Fields> = [],
+  dir: string
+): FileData => {
   const realSlug = slug.replace(/\.mdx$/, '')
-  const fullPath = join(projectsDir, `${realSlug}.mdx`)
+  const fullPath = join(dir, `${realSlug}.mdx`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents) as unknown as FileData
 
@@ -27,7 +28,13 @@ const getPostBySlug = (slug: string, fields: Array<Fields> = []): FileData => {
 }
 
 export function getProjects(fields: Fields[] = []) {
-  const slugs = getProjectsSlugs()
-  const projects = slugs.map(slug => getPostBySlug(slug, fields))
+  const slugs = fs.readdirSync(projectsDir)
+  const projects = slugs.map(slug => getContent(slug, fields, projectsDir))
   return projects
+}
+
+export function getAbout(fields: Fields[] = []) {
+  const slugs = fs.readdirSync(aboutDir)
+  const [about, contact] = slugs.map(slug => getContent(slug, fields, aboutDir))
+  return [about, contact]
 }

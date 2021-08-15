@@ -28,7 +28,7 @@ export default function Project({ scope, compiledSource }: Props) {
   const [isOpen, setIsOpen] = useState(open)
 
   const toggleOpen = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(state => !state)
   }
 
   const imageCompo = (
@@ -47,14 +47,14 @@ export default function Project({ scope, compiledSource }: Props) {
     <button
       className={
         isOpen
-          ? 'mt-4 mb-28 text-left'
+          ? 'mt-4 mb-28 text-left hover:opacity-100'
           : 'my-4 text-left cursor-pointer block hover:opacity-90 transition-opacity'
       }
       onClick={toggleOpen}
     >
       {isOpen && imageCompo}
       <div
-        className={`grid mt-5 gap-8 ${isOpen ? 'grid-cols-4' : 'grid-cols-5'}`}
+        className={`grid gap-8 ${isOpen ? 'mt-5 grid-cols-4' : 'grid-cols-5'}`}
       >
         {isOpen ? <MDXRemote compiledSource={compiledSource} /> : imageCompo}
 

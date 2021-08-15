@@ -28,3 +28,8 @@ export type FileData = {
 }
 
 export type MdxProjects = MDXRemoteSerializeResult<FrontMatter>
+
+export type About = {
+  about: MDXRemoteSerializeResult<FrontMatter>
+  contact: MDXRemoteSerializeResult<FrontMatter>
+}
