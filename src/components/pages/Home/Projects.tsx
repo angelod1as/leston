@@ -6,9 +6,30 @@ type Props = {
 }
 
 export default function Projects({ projects }: Props) {
+  const openProjects = projects.filter(({ scope }) => {
+    return scope?.open
+  })
+
+  const closedProjects = projects.filter(({ scope }) => {
+    return !scope?.open
+  })
+
   return (
-    <div className="my-16 mx-10" id="projects">
-      {projects.map(({ compiledSource, scope }, idx) => {
+    <div className="mx-10 my-16" id="projects">
+      {openProjects.map(({ compiledSource, scope }, idx) => {
+        if (!scope) {
+          return null
+        }
+
+        return (
+          <Project
+            scope={scope}
+            compiledSource={compiledSource}
+            key={'project' + idx}
+          />
+        )
+      })}
+      {closedProjects.map(({ compiledSource, scope }, idx) => {
         if (!scope) {
           return null
         }
