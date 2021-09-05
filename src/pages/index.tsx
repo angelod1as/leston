@@ -15,7 +15,7 @@ const Index = ({ projects, about }: Props) => {
 export default Index
 
 export async function getStaticProps() {
-  const projectsData = getProjects(['content', 'excerpt', 'image', 'credits'])
+  const projectsData = getProjects(['content', 'excerpt', 'images', 'credits'])
 
   const projects = await Promise.all(
     projectsData.map(

@@ -7,10 +7,12 @@ export type Credits = {
   gap?: boolean
 }
 
-type Image = {
-  path: string
-  width: number
-  height: number
+export type Images = {
+  path?: string
+  width?: number
+  height?: number
+  alt: string
+  video?: string
 }
 
 export type FrontMatter = {
@@ -18,7 +20,7 @@ export type FrontMatter = {
   excerpt: string
   open: boolean
   extraInfo: string
-  image: Image
+  images: Images[]
   credits: Credits[]
 }
 

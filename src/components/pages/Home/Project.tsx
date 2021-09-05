@@ -1,5 +1,5 @@
+import Images from '@components/Images'
 import { MDXRemote } from 'next-mdx-remote'
-import Image from 'next/image'
 import { Fragment, useState } from 'react'
 import { FrontMatter } from 'src/@types/types'
 import { Credits } from './Credits'
@@ -24,40 +24,40 @@ type Props = {
 }
 
 export default function Project({ scope, compiledSource }: Props) {
-  const { image, credits, extraInfo, excerpt, title, open } = scope
+  const { images, credits, extraInfo, excerpt, title, open } = scope
   const [isOpen, setIsOpen] = useState(open)
 
   const toggleOpen = () => {
     setIsOpen(state => !state)
   }
 
-  const imageCompo = (
-    <div className={isOpen ? 'relative' : 'relative col-span-2'}>
-      <Image
-        src={'/images' + image.path}
-        alt=""
-        width={image.width}
-        height={image.height}
-        layout="responsive"
-      />
-    </div>
-  )
+  const imageCompo = <Images images={images} isOpen={isOpen} />
+
+  if (isOpen) {
+    return (
+      <div className="mt-4 text-left mb-28 hover:opacity-100">
+        {imageCompo}
+        <button className="grid grid-cols-4 gap-8 mt-5" onClick={toggleOpen}>
+          <MDXRemote compiledSource={compiledSource} />
+          <div className="flex justify-end">
+            <h2 className="mt-[-4px]">{addBreak(title)}</h2>
+          </div>
+          <div>
+            <Credits credits={credits} isOpen={isOpen} />
+          </div>
+          <p>{isOpen ? extraInfo : excerpt}</p>
+        </button>
+      </div>
+    )
+  }
 
   return (
     <button
-      className={
-        isOpen
-          ? 'mt-4 mb-28 text-left hover:opacity-100'
-          : 'my-4 text-left cursor-pointer block hover:opacity-90 transition-opacity'
-      }
+      className="block my-4 text-left transition-opacity cursor-pointer hover:opacity-90"
       onClick={toggleOpen}
     >
-      {isOpen && imageCompo}
-      <div
-        className={`grid gap-8 ${isOpen ? 'mt-5 grid-cols-4' : 'grid-cols-5'}`}
-      >
-        {isOpen ? <MDXRemote compiledSource={compiledSource} /> : imageCompo}
-
+      <div className="grid grid-cols-5 gap-8">
+        {imageCompo}
         <div className="flex justify-end">
           <h2 className="mt-[-4px]">{addBreak(title)}</h2>
         </div>
