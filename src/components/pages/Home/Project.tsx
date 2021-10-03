@@ -1,4 +1,4 @@
-import Images from '@components/Images'
+import ImageCarousel from '@components/ImageCarousel'
 import { MDXRemote } from 'next-mdx-remote'
 import { Fragment, useState } from 'react'
 import { FrontMatter } from 'src/@types/types'
@@ -31,7 +31,7 @@ export default function Project({ scope, compiledSource }: Props) {
     setIsOpen(state => !state)
   }
 
-  const imageCompo = <Images images={images} isOpen={isOpen} />
+  const imageCompo = <ImageCarousel images={images} isOpen={isOpen} />
 
   if (isOpen) {
     return (
