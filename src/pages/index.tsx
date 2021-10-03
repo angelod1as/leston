@@ -2,34 +2,64 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { getProjects, getAbout } from '@lib/api'
 import Home from '@components/pages/Home'
 import { About, MdxProjects } from 'src/@types/types'
+import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 
-type Props = {
+type ContentProps = {
   projects: MdxProjects[]
   about: About
 }
 
-const Index = ({ projects, about }: Props) => {
+type Props = {
+  'pt-BR': ContentProps
+  'en-US': ContentProps
+}
+
+const Index = (props: Props) => {
+  const { locale } = useLocaleContext()
+  const { about, projects } = props[locale]
   return <Home projects={projects} about={about} />
 }
 
 export default Index
 
 export async function getStaticProps() {
-  const projectsData = getProjects(['content', 'excerpt', 'images', 'credits'])
+  const getLocaleProjects = async (locale: string) => {
+    const projectsData = getProjects(locale, [
+      'content',
+      'excerpt',
+      'images',
+      'credits',
+    ])
 
-  const projects = await Promise.all(
-    projectsData.map(
-      async ({ content, data }) => await serialize(content, { scope: data })
+    return await Promise.all(
+      projectsData.map(
+        async ({ content, data }) => await serialize(content, { scope: data })
+      )
     )
-  )
+  }
 
-  const aboutData = getAbout(['content'])
+  const getLocaleAbouts = async (locale: string) => {
+    const aboutData = getAbout(locale, ['content'])
 
-  const [about, contact] = await Promise.all(
-    aboutData.map(
-      async ({ content, data }) => await serialize(content, { scope: data })
+    const [about, contact] = await Promise.all(
+      aboutData.map(
+        async ({ content, data }) => await serialize(content, { scope: data })
+      )
     )
-  )
 
-  return { props: { projects, about: { about, contact } } }
+    return [about, contact]
+  }
+
+  const props = {
+    'pt-BR': {
+      projects: await getLocaleProjects('pt'),
+      about: await getLocaleAbouts('pt'),
+    },
+    'en-US': {
+      projects: await getLocaleProjects('en'),
+      about: await getLocaleAbouts('en'),
+    },
+  }
+
+  return { props }
 }
