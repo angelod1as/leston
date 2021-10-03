@@ -1,3 +1,4 @@
+import LocaleContext from '@components/LocaleContext'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import '../styles/styles.css'
@@ -7,12 +8,10 @@ function App({ Component, pageProps }: AppProps) {
   // const [loading, setLoading] = useState(false)
 
   return (
-    <>
+    <LocaleContext>
       <FirstHead />
-      {/* {loading && <Loading />}
-      <BottomBar {...{ setLoading }} /> */}
       <Component {...pageProps} />
-    </>
+    </LocaleContext>
   )
 }
 

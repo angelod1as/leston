@@ -35,3 +35,5 @@ export type About = {
   about: MDXRemoteSerializeResult<FrontMatter>
   contact: MDXRemoteSerializeResult<FrontMatter>
 }
+
+export type Locale = 'pt-BR' | 'en-US'
