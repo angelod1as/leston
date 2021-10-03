@@ -61,7 +61,7 @@ export async function getStaticProps() {
       )
     )
 
-    return [about, contact]
+    return { about, contact }
   }
 
   const props = {
