@@ -3,7 +3,7 @@ import { About, MdxProjects } from 'src/@types/types'
 import Footer from './Footer'
 import Header from './Header'
 import Projects from './Projects'
-import ToTop from './ToTop'
+import Sidebar from './Sidebar'
 
 type Props = {
   projects: MdxProjects[]
@@ -19,7 +19,7 @@ export default function Home({ projects, about }: Props) {
 
   return (
     <div className="relative" id="top">
-      <ToTop />
+      <Sidebar />
 
       <Header handleToggleAbout={handleToggleAbout} />
 

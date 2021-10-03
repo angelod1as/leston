@@ -10,12 +10,5 @@ export default function ToTop() {
     }
   }
 
-  return (
-    <button
-      className="fixed -right-7 bottom-20 -rotate-90 z-0"
-      onClick={handleClick}
-    >
-      Back to top
-    </button>
-  )
+  return <button onClick={handleClick}>Back to top</button>
 }

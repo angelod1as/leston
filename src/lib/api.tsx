@@ -4,8 +4,7 @@ import { join } from 'path'
 import { FileData, FrontMatter } from 'src/@types/types'
 
 const contentDir = join(process.cwd(), 'src', 'content')
-const projectsDir = join(contentDir, 'projects')
-const aboutDir = join(contentDir, 'about')
+// const localesDir = [join(contentDir, 'en'), join(contentDir, 'pt')]
 
 type Fields = keyof FrontMatter | 'content'
 
@@ -27,14 +26,16 @@ const getContent = (
   return items
 }
 
-export function getProjects(fields: Fields[] = []) {
-  const slugs = fs.readdirSync(projectsDir)
-  const projects = slugs.map(slug => getContent(slug, fields, projectsDir))
+export function getProjects(locale: string, fields: Fields[] = []) {
+  const dir = join(contentDir, locale, 'projects')
+  const slugs = fs.readdirSync(dir)
+  const projects = slugs.map(slug => getContent(slug, fields, dir))
   return projects
 }
 
-export function getAbout(fields: Fields[] = []) {
-  const slugs = fs.readdirSync(aboutDir)
-  const [about, contact] = slugs.map(slug => getContent(slug, fields, aboutDir))
+export function getAbout(locale: string, fields: Fields[] = []) {
+  const dir = join(contentDir, locale, 'about')
+  const slugs = fs.readdirSync(dir)
+  const [about, contact] = slugs.map(slug => getContent(slug, fields, dir))
   return [about, contact]
 }
