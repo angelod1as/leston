@@ -3,6 +3,7 @@ import { getProjects, getAbout } from '@lib/api'
 import Home from '@components/pages/Home'
 import { About, MdxProjects } from 'src/@types/types'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
+import useWindowDimensions from '@lib/useWindowDimensions'
 
 type ContentProps = {
   projects: MdxProjects[]
@@ -17,7 +18,20 @@ type Props = {
 const Index = (props: Props) => {
   const { locale } = useLocaleContext()
   const { about, projects } = props[locale]
-  return <Home projects={projects} about={about} />
+
+  const { height, scroll } = useWindowDimensions()
+
+  return (
+    <div className="bg-black">
+      <div
+        style={{
+          backgroundColor: `rgba(255,255,255,${scroll / 1 / height})`,
+        }}
+      >
+        <Home projects={projects} about={about} />
+      </div>
+    </div>
+  )
 }
 
 export default Index

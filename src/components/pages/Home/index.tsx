@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { About, MdxProjects } from 'src/@types/types'
 import Footer from './Footer'
 import Header from './Header'
@@ -10,7 +10,7 @@ type Props = {
   about: About
 }
 
-export default function Home({ projects, about }: Props) {
+export default memo(function Home({ projects, about }: Props) {
   const [aboutOpen, setAboutOpen] = useState(false)
 
   const handleToggleAbout = () => {
@@ -32,4 +32,4 @@ export default function Home({ projects, about }: Props) {
       />
     </div>
   )
-}
+})

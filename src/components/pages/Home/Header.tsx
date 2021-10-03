@@ -39,7 +39,7 @@ export default function Header({ handleToggleAbout }: Props) {
   }
 
   return (
-    <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white bg-black">
+    <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white">
       <div className="flex items-start justify-between w-full py-6 px-14">
         <p>
           <span className="times">{data.Artist}</span>, {data.Musician},
