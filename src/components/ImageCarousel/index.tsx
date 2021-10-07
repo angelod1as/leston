@@ -14,14 +14,14 @@ export default function ImageCarousel({ images, isOpen }: Props) {
   const [thumbClicked, setThumbClicked] = useState(false)
 
   const handleClickThumb = () => {
-    console.log('thumb')
+    // console.log('thumb')
     setThumbClicked(st => !st)
   }
 
-  const handleClickArrow = () => {
-    console.log('arrow')
-    setThumbClicked(st => !st)
-  }
+  // const handleClickArrow = () => {
+  //   console.log('arrow')
+  //   setThumbClicked(st => !st)
+  // }
 
   if (isOpen) {
     return (
