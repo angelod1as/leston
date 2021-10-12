@@ -18,8 +18,10 @@ export default function Stone() {
 
   if (image?.src) {
     return (
-      <div className="fixed z-50 flex items-center justify-center w-screen h-screen">
-        <Image src={image} alt="" />
+      <div className="fixed z-40 flex items-center justify-center w-screen h-screen pointer-events-none">
+        <div className="flex items-center justify-center w-4/6">
+          <Image src={image} alt="" className="pointer-events-none" />
+        </div>
       </div>
     )
   }

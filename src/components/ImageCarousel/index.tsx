@@ -32,7 +32,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
   const Video = ({ video, alt }: { video: string; alt: string }) => {
     return (
       <>
-        <div style={{ padding: '37.5% 0 0 0', position: 'relative' }}>
+        <div className="relative bg-black" style={{ padding: '37.5% 0 0 0' }}>
           <iframe
             src={`https://player.vimeo.com/video/${video}?${optionStrings}`}
             allowFullScreen
@@ -55,7 +55,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
 
   if (isOpen) {
     return (
-      <div className="relative">
+      <div className="relative z-50">
         <Carousel
           showThumbs={false}
           showIndicators={false}
@@ -88,8 +88,6 @@ export default function ImageCarousel({ images, isOpen }: Props) {
       </div>
     )
   }
-
-  // TODO: Pegar primeira imagem do array
 
   const { video, height, width, path, alt } = images[0]
   return (
