@@ -20,7 +20,8 @@ export default memo(function Home({ projects, about }: Props) {
 
   return (
     <div className="relative" id="top">
-      <Stone />
+      {/* TODO: Take this back */}
+      {/* <Stone /> */}
 
       <Sidebar />
 
