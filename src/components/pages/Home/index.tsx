@@ -4,6 +4,7 @@ import Footer from './Footer'
 import Header from './Header'
 import Projects from './Projects'
 import Sidebar from './Sidebar'
+import Stone from './Stone'
 
 type Props = {
   projects: MdxProjects[]
@@ -19,6 +20,8 @@ export default memo(function Home({ projects, about }: Props) {
 
   return (
     <div className="relative" id="top">
+      <Stone />
+
       <Sidebar />
 
       <Header handleToggleAbout={handleToggleAbout} />
