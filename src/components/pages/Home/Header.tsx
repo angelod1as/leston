@@ -12,6 +12,7 @@ const text = {
     'Creative Technologist': 'Creative Technologist',
     About: 'About',
     Archive: 'Archive',
+    Projects: 'Projects',
   },
   'pt-BR': {
     Artist: 'Artista',
@@ -20,6 +21,7 @@ const text = {
     'Creative Technologist': 'Creative Technologist',
     About: 'Sobre',
     Archive: 'Arquivo',
+    Projects: 'Projetos',
   },
 }
 
@@ -27,8 +29,8 @@ export default function Header({ handleToggleAbout }: Props) {
   const { locale } = useLocaleContext()
   const data = text[locale]
 
-  const scroll = () => {
-    const archive = document.getElementById('projects')
+  const scroll = (to: string) => {
+    const archive = document.getElementById(to)
     if (archive) {
       archive.scrollIntoView({
         block: 'start',
@@ -42,15 +44,21 @@ export default function Header({ handleToggleAbout }: Props) {
     <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white">
       <div className="flex items-start justify-between w-full py-6 px-14">
         <p>
-          <span className="times">{data.Artist}</span>, {data.Musician},
+          {data.Artist}, {data.Musician},
           <br />
-          <span className="times">{data['Multimedia Developer']}</span>,<br />
+          {data['Multimedia Developer']},<br />
           {data['Creative Technologist']}
         </p>
         <button className="times" onClick={handleToggleAbout}>
           {data.About}
         </button>
-        <button onClick={scroll}> {data.Archive}</button>
+        <button className="times" onClick={() => scroll('archives')}>
+          {data.Archive}
+        </button>
+        <button className="times" onClick={() => scroll('projects')}>
+          {data.Projects}
+        </button>
+
         <p>
           hello@matheusleston.com <br />
           @matheusleston

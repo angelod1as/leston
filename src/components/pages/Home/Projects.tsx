@@ -15,33 +15,37 @@ export default function Projects({ projects }: Props) {
   })
 
   return (
-    <div className="mx-10 my-16" id="projects">
-      {openProjects.map(({ compiledSource, scope }, idx) => {
-        if (!scope) {
-          return null
-        }
+    <div className="mx-10 my-16">
+      <div id="projects">
+        {openProjects.map(({ compiledSource, scope }, idx) => {
+          if (!scope) {
+            return null
+          }
 
-        return (
-          <Project
-            scope={scope}
-            compiledSource={compiledSource}
-            key={'project' + idx}
-          />
-        )
-      })}
-      {closedProjects.map(({ compiledSource, scope }, idx) => {
-        if (!scope) {
-          return null
-        }
+          return (
+            <Project
+              scope={scope}
+              compiledSource={compiledSource}
+              key={'project' + idx}
+            />
+          )
+        })}
+      </div>
+      <div id="archives">
+        {closedProjects.map(({ compiledSource, scope }, idx) => {
+          if (!scope) {
+            return null
+          }
 
-        return (
-          <Project
-            scope={scope}
-            compiledSource={compiledSource}
-            key={'project' + idx}
-          />
-        )
-      })}
+          return (
+            <Project
+              scope={scope}
+              compiledSource={compiledSource}
+              key={'project' + idx}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }
