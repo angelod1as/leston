@@ -20,12 +20,13 @@ const Index = (props: Props) => {
   const { about, projects } = props[locale]
 
   const { height, scroll } = useWindowDimensions()
+  const dimension = scroll / 1 / height
 
   return (
     <div className="bg-black">
       <div
         style={{
-          backgroundColor: `rgba(255,255,255,${scroll / 1 / height})`,
+          backgroundColor: `rgba(255,255,255,${dimension || 0})`,
         }}
       >
         <Home projects={projects} about={about} />
