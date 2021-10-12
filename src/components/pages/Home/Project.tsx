@@ -37,7 +37,10 @@ export default function Project({ scope, compiledSource }: Props) {
     return (
       <div className="mt-4 text-left mb-28 hover:opacity-100">
         {imageCompo}
-        <button className="grid grid-cols-4 gap-8 mt-5" onClick={toggleOpen}>
+        <button
+          className="grid grid-cols-4 gap-8 mt-5 text-left"
+          onClick={toggleOpen}
+        >
           <MDXRemote compiledSource={compiledSource} />
           <div className="flex justify-end">
             <h2 className="mt-[-4px]">{addBreak(title)}</h2>
