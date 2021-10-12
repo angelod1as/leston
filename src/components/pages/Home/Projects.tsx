@@ -16,7 +16,7 @@ export default function Projects({ projects }: Props) {
 
   return (
     <div className="mx-10 my-16">
-      <div id="projects">
+      <div id="highlights">
         {openProjects.map(({ compiledSource, scope }, idx) => {
           if (!scope) {
             return null

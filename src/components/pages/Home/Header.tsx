@@ -12,7 +12,7 @@ const text = {
     'Creative Technologist': 'Creative Technologist',
     About: 'About',
     Archive: 'Archive',
-    Projects: 'Projects',
+    Highlights: 'Highlights',
   },
   'pt-BR': {
     Artist: 'Artista',
@@ -21,7 +21,7 @@ const text = {
     'Creative Technologist': 'Creative Technologist',
     About: 'Sobre',
     Archive: 'Arquivo',
-    Projects: 'Projetos',
+    Highlights: 'Destaquest',
   },
 }
 
@@ -55,8 +55,8 @@ export default function Header({ handleToggleAbout }: Props) {
         <button className="times" onClick={() => scroll('archives')}>
           {data.Archive}
         </button>
-        <button className="times" onClick={() => scroll('projects')}>
-          {data.Projects}
+        <button className="times" onClick={() => scroll('highlights')}>
+          {data.Highlights}
         </button>
 
         <p>
