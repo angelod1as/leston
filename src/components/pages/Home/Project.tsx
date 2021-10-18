@@ -38,17 +38,23 @@ export default function Project({ scope, compiledSource }: Props) {
       <div className="mt-4 text-left mb-28 hover:opacity-100">
         {imageCompo}
         <button
-          className="grid grid-cols-4 gap-8 mt-5 text-left"
+          className="grid gap-2 mt-5 text-left grid-cols-14"
           onClick={toggleOpen}
         >
-          <MDXRemote compiledSource={compiledSource} />
-          <div className="flex justify-end">
-            <h2 className="mt-[-4px]">{addBreak(title)}</h2>
+          <div className="col-span-4">
+            <MDXRemote compiledSource={compiledSource} />
           </div>
-          <div>
+          <div>{/* empty column */}</div>
+          <div className="col-span-2">
+            <h2 className="mt-[-2px]">{addBreak(title)}</h2>
+          </div>
+          <div className="col-span-3">
             <Credits credits={credits} isOpen={isOpen} />
           </div>
-          <p>{isOpen ? extraInfo : excerpt}</p>
+          <div>{/* empty column */}</div>
+          <div className="col-span-3">
+            <p>{isOpen ? extraInfo : excerpt}</p>
+          </div>
         </button>
       </div>
     )
@@ -59,15 +65,19 @@ export default function Project({ scope, compiledSource }: Props) {
       className="block my-4 text-left transition-opacity cursor-pointer hover:opacity-90"
       onClick={toggleOpen}
     >
-      <div className="grid grid-cols-5 gap-8">
-        {imageCompo}
-        <div className="flex justify-end">
-          <h2 className="mt-[-4px]">{addBreak(title)}</h2>
+      <div className="grid gap-2 grid-cols-14">
+        <div className="col-span-4">{imageCompo}</div>
+        <div>{/* empty column */}</div>
+        <div className="col-span-2">
+          <h2 className="mt-[-2px]">{addBreak(title)}</h2>
         </div>
-        <div>
+        <div className="col-span-3">
           <Credits credits={credits} isOpen={isOpen} />
         </div>
-        <p>{isOpen ? extraInfo : excerpt}</p>
+        <div>{/* empty column */}</div>
+        <div className="col-span-3">
+          <p>{isOpen ? extraInfo : excerpt}</p>
+        </div>
       </div>
     </button>
   )
