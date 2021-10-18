@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import Draggable from 'react-draggable'
 
 type Props = {
-  image: any
+  image: StaticImageData
 }
 
 export default function Stone({ image }: Props) {
