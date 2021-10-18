@@ -2,21 +2,12 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import Draggable from 'react-draggable'
 
-export default function Stone() {
-  const [image, setImage] = useState<StaticImageData>({} as StaticImageData)
+type Props = {
+  image: any
+}
+
+export default function Stone({ image }: Props) {
   const ref = useRef(null)
-
-  const getImage = async () => {
-    const number = Math.floor(Math.random() * 19) + 1
-    const image = await import(`public/images/stone/${number}.png`)
-    return image
-  }
-
-  useEffect(() => {
-    getImage().then(image => {
-      setImage(image.default)
-    })
-  }, [])
 
   if (image?.src) {
     return (
