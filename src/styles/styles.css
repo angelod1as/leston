@@ -44,15 +44,14 @@ h2 {
   @apply union uppercase text-[34px] leading-[37px];
 }
 
-i,
-em {
-  @apply times;
-}
-
 button {
   @apply block;
 }
 
 button:hover {
-  @apply opacity-70 transition-opacity;
+  @apply transition-opacity opacity-70;
+}
+
+a {
+  @apply times;
 }

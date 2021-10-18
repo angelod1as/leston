@@ -65,7 +65,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
         >
           {images.map(({ height, width, path, alt, video }, idx) => {
             if (video && alt) {
-              return <Video video={video} alt={alt} />
+              return <Video key={alt + idx} video={video} alt={alt} />
             } else if (height && width && path && alt) {
               return (
                 <div key={alt + idx}>
