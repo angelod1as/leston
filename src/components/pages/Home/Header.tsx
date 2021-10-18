@@ -1,4 +1,6 @@
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
+import Image from 'next/image'
+import logo from 'public/images/logo/logo.svg'
 
 type Props = {
   handleToggleAbout: () => void
@@ -64,10 +66,8 @@ export default function Header({ handleToggleAbout }: Props) {
           @matheusleston
         </p>
       </div>
-      <div className="mb-10">
-        <h1 className="union text-center !text-[24vw] !leading-[24rem] contents">
-          LESTON
-        </h1>
+      <div className="m-10">
+        <Image src={logo} alt="LESTON" />
       </div>
     </div>
   )
