@@ -20,11 +20,13 @@ export default function Stone() {
 
   if (image?.src) {
     return (
-      <Draggable defaultPosition={{ x: 0, y: 0 }} scale={1} nodeRef={ref}>
-        <div className="fixed z-50 cursor-move w-[70%] ">
-          <Image src={image} alt="" className="pointer-events-none" />
-        </div>
-      </Draggable>
+      <div className="absolute flex items-center justify-center w-screen h-screen overflow-hidden">
+        <Draggable nodeRef={ref}>
+          <div className="fixed z-50 cursor-move w-[70%]">
+            <Image src={image} alt="" className="pointer-events-none" />
+          </div>
+        </Draggable>
+      </div>
     )
   }
 
