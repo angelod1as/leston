@@ -13,23 +13,25 @@ export default function Footer({
   handleToggleAbout,
 }: Props) {
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white z-[100]">
+    <div
+      className={`fixed bottom-0 left-0 w-full z-[100] max-h-[50%] bg-white ${
+        aboutOpen ? 'h-full overflow-scroll' : 'h-5'
+      }`}
+    >
       <button
         onClick={handleToggleAbout}
-        className="block w-full h-5"
+        className={`w-full h-5 ${aboutOpen && 'fixed top-1/2 left-0'}`}
         style={{
           background:
             'linear-gradient(270deg, #58585B -51.04%, #F0F0F0 -23.96%, #929EA7 63.54%, #0B0C0F 93.75%)',
         }}
       />
-      {aboutOpen && (
-        <div className="grid grid-cols-3 mx-10 my-4">
-          <MDXRemote compiledSource={about.compiledSource} />
-          <div className="col-start-3">
-            <MDXRemote compiledSource={contact.compiledSource} />
-          </div>
+      <div className="grid grid-cols-3 gap-4 mx-10 my-8">
+        <MDXRemote compiledSource={about.compiledSource} />
+        <div className="col-start-3">
+          <MDXRemote compiledSource={contact.compiledSource} />
         </div>
-      )}
+      </div>
     </div>
   )
 }
