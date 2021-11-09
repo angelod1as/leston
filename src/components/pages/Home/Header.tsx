@@ -78,8 +78,8 @@ export default function Header({ handleToggleAbout }: Props) {
 
       {/* Mobile */}
       <div className="block md:hidden">
-        <div className="relative z-10 grid h-screen max-h-screen grid-cols-5 gap-4 pt-4 pb-8 text-white">
-          <div className="col-span-2 -mt-4 -ml-1 overflow-hidden">
+        <div className="relative z-10 flex h-screen max-h-screen gap-4 pt-4 pb-8 text-white">
+          <div className="-mt-5 -ml-1 overflow-hidden ">
             <div className="">
               <Image src={logoVert} alt="LESTON" />
             </div>
@@ -97,7 +97,7 @@ export default function Header({ handleToggleAbout }: Props) {
               </button>
             </div>
           </div>
-          <div className="flex flex-col justify-between col-span-2">
+          <div className="flex flex-col justify-between ">
             <p>
               {data.Artist}, {data.Musician},
               <br />
