@@ -44,7 +44,7 @@ export default function Header({ handleToggleAbout }: Props) {
 
   return (
     <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white">
-      <div className="flex items-start justify-between w-full py-6 px-14">
+      <div className="flex items-start justify-between w-full pt-6 px-14">
         <p>
           {data.Artist}, {data.Musician},
           <br />
@@ -66,7 +66,7 @@ export default function Header({ handleToggleAbout }: Props) {
           @matheusleston
         </p>
       </div>
-      <div className="m-10">
+      <div className="mb-3">
         <Image src={logo} alt="LESTON" />
       </div>
     </div>
