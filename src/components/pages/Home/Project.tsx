@@ -35,47 +35,73 @@ export default function Project({ scope, compiledSource }: Props) {
 
   if (isOpen) {
     return (
-      <div className="mt-4 text-left mb-28 hover:opacity-100">
-        {imageCompo}
-        <button
-          className="grid gap-2 mt-5 text-left grid-cols-14"
-          onClick={toggleOpen}
-        >
-          <div className="col-span-4">
-            <MDXRemote compiledSource={compiledSource} />
+      <>
+        {/* Destkop */}
+        <div className="hidden lg:block">
+          <div className="mt-4 text-left mb-28 hover:opacity-100">
+            {imageCompo}
+            <button
+              className="grid gap-2 mt-5 text-left grid-cols-14"
+              onClick={toggleOpen}
+            >
+              <div className="col-span-4">
+                <MDXRemote compiledSource={compiledSource} />
+              </div>
+              <div className="hidden lg:block">{/* empty column */}</div>
+              <div className="col-span-2">
+                <h2 className="mt-[-2px]">{addBreak(title)}</h2>
+              </div>
+              <div className="col-span-3">
+                <Credits credits={credits} isOpen={isOpen} />
+              </div>
+              <div>{/* empty column */}</div>
+              <div className="col-span-3">
+                <p>{extraInfo}</p>
+              </div>
+            </button>
           </div>
-          <div>{/* empty column */}</div>
-          <div className="col-span-2">
-            <h2 className="mt-[-2px]">{addBreak(title)}</h2>
+        </div>
+        {/* Mobile */}
+        <div className="lg:hidden">
+          <div className="mt-4 text-left mb-28 hover:opacity-100">
+            {imageCompo}
+            <button
+              className="grid grid-cols-2 gap-2 mt-5 text-left"
+              onClick={toggleOpen}
+            >
+              <div className="col-start-2">
+                <h2 className="mt-[-2px]">{addBreak(title)}</h2>
+              </div>
+              <div className="row-start-2">
+                <Credits credits={credits} isOpen={isOpen} />
+                <p className="mt-4">{extraInfo}</p>
+              </div>
+              <div className="row-start-2">
+                <MDXRemote compiledSource={compiledSource} />
+              </div>
+            </button>
           </div>
-          <div className="col-span-3">
-            <Credits credits={credits} isOpen={isOpen} />
-          </div>
-          <div>{/* empty column */}</div>
-          <div className="col-span-3">
-            <p>{isOpen ? extraInfo : excerpt}</p>
-          </div>
-        </button>
-      </div>
+        </div>
+      </>
     )
   }
 
   return (
     <button
-      className="block my-4 text-left transition-opacity cursor-pointer hover:opacity-90"
+      className="block w-full my-4 text-left transition-opacity cursor-pointer hover:opacity-90 "
       onClick={toggleOpen}
     >
-      <div className="grid gap-2 grid-cols-14">
-        <div className="col-span-4">{imageCompo}</div>
-        <div>{/* empty column */}</div>
-        <div className="col-span-2">
+      <div className="grid grid-cols-3 gap-2 lg:grid-cols-14">
+        <div className="col-span-2 lg:col-span-4">{imageCompo}</div>
+        <div className="hidden xl:block ">{/* empty column */}</div>
+        <div className="col-span-1 lg:col-span-3 xl:col-span-2">
           <h2 className="mt-[-2px]">{addBreak(title)}</h2>
         </div>
-        <div className="col-span-3">
+        <div className="hidden col-span-3 lg:block">
           <Credits credits={credits} isOpen={isOpen} />
         </div>
-        <div>{/* empty column */}</div>
-        <div className="col-span-3">
+        <div className="hidden xl:block">{/* empty column */}</div>
+        <div className="hidden col-span-3 lg:block">
           <p>{isOpen ? extraInfo : excerpt}</p>
         </div>
       </div>

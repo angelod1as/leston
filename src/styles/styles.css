@@ -20,28 +20,22 @@
 @layer base {
   body {
     font-family: Union, Arial, sans-serif;
-    letter-spacing: 0.02em;
-    font-size: 18px;
-    line-height: 20px;
+    @apply text-sm md:text-[18px] md:leading-[20px];
   }
 
   .union {
     font-family: Union, Arial, sans-serif;
-    letter-spacing: 0.02em;
-    font-size: 18px;
-    line-height: 20px;
+    @apply text-sm md:text-[18px] md:leading-[20px];
   }
 
   .times {
     font-family: Times, 'Times New Roman', serif;
-    letter-spacing: 0.03em;
-    font-size: 19px;
-    line-height: 20px;
+    @apply text-sm md:text-[19px] md:leading-[20px];
   }
 }
 
 h2 {
-  @apply union uppercase text-[34px] leading-[37px];
+  @apply union uppercase font-bold md:font-normal text-2xl 2xl:text-[34px] 2xl:leading-[37px];
 }
 
 button {
