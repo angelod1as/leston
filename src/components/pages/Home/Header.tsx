@@ -1,7 +1,6 @@
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 import Image from 'next/image'
-import logo from 'public/images/logo/logo.svg'
-import logoVert from 'public/images/logo/logo-vert.svg'
+import logo from 'public/images/app/logo.svg'
 
 type Props = {
   handleToggleAbout: () => void
@@ -48,7 +47,7 @@ export default function Header({ handleToggleAbout }: Props) {
       {/* Desktop */}
       <div className="hidden md:block">
         <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white">
-          <div className="flex items-start justify-between w-full pt-6 px-14">
+          <div className="flex items-start justify-between w-full px-10 pt-6">
             <p>
               {data.Artist}, {data.Musician},
               <br />
@@ -70,7 +69,7 @@ export default function Header({ handleToggleAbout }: Props) {
               @matheusleston
             </p>
           </div>
-          <div className="mb-3">
+          <div className="p-10 mb-3">
             <Image src={logo} alt="LESTON" />
           </div>
         </div>
@@ -78,36 +77,32 @@ export default function Header({ handleToggleAbout }: Props) {
 
       {/* Mobile */}
       <div className="block md:hidden">
-        <div className="relative z-10 flex h-screen max-h-screen gap-4 pt-4 pb-8 text-white">
-          <div className="-mt-5 -ml-1 overflow-hidden ">
-            <div className="">
-              <Image src={logoVert} alt="LESTON" />
-            </div>
-          </div>
-          <div className="flex flex-col justify-between">
+        <div className="relative z-10 flex flex-col items-center justify-between h-screen p-2 text-white">
+          <div className="flex justify-between w-full">
             <button className="times" onClick={handleToggleAbout}>
               {data.About}
             </button>
-            <div>
-              <button className="times" onClick={() => scroll('archives')}>
-                {data.Archive}
-              </button>
-              <button className="times" onClick={() => scroll('highlights')}>
-                {data.Highlights}
-              </button>
-            </div>
+            <button className="times" onClick={() => scroll('archives')}>
+              {data.Archive}
+            </button>
+            <button className="times" onClick={() => scroll('highlights')}>
+              {data.Highlights}
+            </button>
           </div>
-          <div className="flex flex-col justify-between ">
+          <div className="flex flex-col justify-between w-full">
             <p>
               {data.Artist}, {data.Musician},
               <br />
               {data['Multimedia Developer']},<br />
               {data['Creative Technologist']}
             </p>
-            <p className="break-words">
+            <p className="mt-4 break-words">
               hello@matheusleston.com <br />
               @matheusleston
             </p>
+          </div>
+          <div className="mb-3">
+            <Image src={logo} alt="LESTON" />
           </div>
         </div>
       </div>
