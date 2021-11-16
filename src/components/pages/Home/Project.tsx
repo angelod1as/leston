@@ -65,19 +65,16 @@ export default function Project({ scope, compiledSource }: Props) {
         <div className="lg:hidden">
           <div className="mt-4 text-left mb-28 hover:opacity-100">
             {imageCompo}
-            <button
-              className="grid grid-cols-2 gap-2 mt-5 text-left"
-              onClick={toggleOpen}
-            >
-              <div className="col-start-2">
-                <h2 className="mt-[-2px]">{addBreak(title)}</h2>
+            <button className="text-left" onClick={toggleOpen}>
+              <div className="pr-4 mt-8">
+                <h2 className="mt-[-2px]">{title}</h2>
               </div>
-              <div className="row-start-2">
-                <Credits credits={credits} isOpen={isOpen} />
-                <p className="mt-4">{extraInfo}</p>
-              </div>
-              <div className="row-start-2">
+              <div className="pr-4 mt-8">
                 <MDXRemote compiledSource={compiledSource} />
+              </div>
+              <div className="pr-4 mt-8">
+                <Credits credits={credits} isOpen={isOpen} />
+                <p className="pr-4 mt-8">{extraInfo}</p>
               </div>
             </button>
           </div>
@@ -88,11 +85,11 @@ export default function Project({ scope, compiledSource }: Props) {
 
   return (
     <button
-      className="block w-full my-4 text-left transition-opacity cursor-pointer hover:opacity-90 "
+      className="block w-full pr-4 my-4 text-left transition-opacity cursor-pointer hover:opacity-90"
       onClick={toggleOpen}
     >
-      <div className="grid grid-cols-3 gap-2 lg:grid-cols-14">
-        <div className="col-span-2 lg:col-span-4">{imageCompo}</div>
+      <div className="grid grid-cols-2 gap-2 lg:grid-cols-14">
+        <div className="md:col-span-2 lg:col-span-4">{imageCompo}</div>
         <div className="hidden xl:block ">{/* empty column */}</div>
         <div className="col-span-1 lg:col-span-3 xl:col-span-2">
           <h2 className="mt-[-2px]">{addBreak(title)}</h2>

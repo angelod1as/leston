@@ -20,17 +20,17 @@
 @layer base {
   body {
     font-family: Union, Arial, sans-serif;
-    @apply text-sm md:text-[18px] md:leading-[20px];
+    @apply text-[18px] leading-[20px];
   }
 
   .union {
     font-family: Union, Arial, sans-serif;
-    @apply text-sm md:text-[18px] md:leading-[20px];
+    @apply text-[18px] leading-[20px];
   }
 
   .times {
     font-family: Times, 'Times New Roman', serif;
-    @apply text-sm md:text-[19px] md:leading-[20px];
+    @apply text-[19px] leading-[20px];
   }
 }
 
