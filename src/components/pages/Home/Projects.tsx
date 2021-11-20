@@ -1,3 +1,4 @@
+import isMobile from 'is-mobile'
 import { MdxProjects } from 'src/@types/types'
 import Project from './Project'
 
@@ -5,7 +6,17 @@ type Props = {
   projects: MdxProjects[]
 }
 
-export default function Projects({ projects }: Props) {
+export default function Projects({ projects: allProjects }: Props) {
+  const projects = allProjects.map(proj => {
+    const newProj = proj
+    if (isMobile()) {
+      if (newProj.scope) {
+        newProj.scope.open = false
+      }
+    }
+    return newProj
+  })
+
   const openProjects = projects.filter(({ scope }) => {
     return scope?.open
   })

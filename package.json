@@ -19,6 +19,7 @@
     "dotenv": "^10.0.0",
     "eslint-plugin-standard": "^5.0.0",
     "gray-matter": "^4.0.3",
+    "is-mobile": "^3.0.0",
     "nanoid": "^3.1.20",
     "next": "11.1.0",
     "next-mdx-remote": "^3.0.4",
