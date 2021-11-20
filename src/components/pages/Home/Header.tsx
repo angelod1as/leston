@@ -78,18 +78,7 @@ export default function Header({ handleToggleAbout }: Props) {
       {/* Mobile */}
       <div className="block md:hidden">
         <div className="relative z-10 flex flex-col items-center justify-between h-screen p-2 text-white">
-          <div className="flex justify-between w-full">
-            <button className="times" onClick={handleToggleAbout}>
-              {data.About}
-            </button>
-            <button className="times" onClick={() => scroll('archives')}>
-              {data.Archive}
-            </button>
-            <button className="times" onClick={() => scroll('highlights')}>
-              {data.Highlights}
-            </button>
-          </div>
-          <div className="flex flex-col justify-between w-full">
+          <div className="w-full">
             <p>
               {data.Artist}, {data.Musician},
               <br />
@@ -100,6 +89,9 @@ export default function Header({ handleToggleAbout }: Props) {
               hello@matheusleston.com <br />
               @matheusleston
             </p>
+            <button className="mt-4 times" onClick={handleToggleAbout}>
+              {data.About}
+            </button>
           </div>
           <div className="mb-3">
             <Image src={logo} alt="LESTON" />
