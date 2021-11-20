@@ -47,9 +47,15 @@ export async function getStaticProps() {
     ])
 
     return await Promise.all(
-      projectsData.map(
-        async ({ content, data }) => await serialize(content, { scope: data })
-      )
+      projectsData.map(async ({ content, data }) => {
+        const parsedData = {
+          ...data,
+          excerpt: (await serialize(data.excerpt)).compiledSource,
+          extraInfo: (await serialize(data.extraInfo)).compiledSource,
+        }
+
+        return await serialize(content, { scope: parsedData })
+      })
     )
   }
 

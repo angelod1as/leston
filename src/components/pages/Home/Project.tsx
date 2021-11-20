@@ -56,7 +56,7 @@ export default function Project({ scope, compiledSource }: Props) {
               </div>
               <div>{/* empty column */}</div>
               <div className="col-span-3">
-                <p>{extraInfo}</p>
+                <MDXRemote compiledSource={extraInfo} />
               </div>
             </button>
           </div>
@@ -74,7 +74,9 @@ export default function Project({ scope, compiledSource }: Props) {
               </div>
               <div className="pr-4 mt-8">
                 <Credits credits={credits} isOpen={isOpen} />
-                <p className="pr-4 mt-8">{extraInfo}</p>
+                <div className="pr-4 mt-8">
+                  <MDXRemote compiledSource={extraInfo} />
+                </div>
               </div>
             </button>
           </div>
@@ -99,7 +101,7 @@ export default function Project({ scope, compiledSource }: Props) {
         </div>
         <div className="hidden xl:block">{/* empty column */}</div>
         <div className="hidden col-span-3 lg:block">
-          <p>{isOpen ? extraInfo : excerpt}</p>
+          <MDXRemote compiledSource={excerpt} />
         </div>
       </div>
     </button>

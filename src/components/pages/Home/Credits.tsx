@@ -13,20 +13,21 @@ export function Credits({ credits, isOpen }: CreditsProps) {
         {credits.map(({ name, roles, gap, url }, idx) => {
           const credKey = 'credit' + idx
           return (
-            <Fragment key={credKey}>
+            <Wrapper key={credKey} url={url}>
               <p className="union">
-                {url ? (
+                {name}
+                {/* {url ? (
                   <a href={url} title={name} className="union">
                     {name}
                   </a>
                 ) : (
                   name
-                )}
+                )} */}
                 <span className="times">
                   {roles.split(' ').map((role, idx) => {
                     return (
                       <span
-                        className="inline-block"
+                        className={`inline-block ${url ? 'underline' : ''}`}
                         key={credKey + 'role' + idx}
                       >
                         {role}
@@ -36,7 +37,7 @@ export function Credits({ credits, isOpen }: CreditsProps) {
                 </span>
               </p>
               {gap && <br />}
-            </Fragment>
+            </Wrapper>
           )
         })}
       </>
@@ -58,4 +59,16 @@ export function Credits({ credits, isOpen }: CreditsProps) {
       </span>
     </p>
   )
+}
+
+type WrapperProps = {
+  children: React.ReactNode
+  url?: string
+}
+
+const Wrapper = ({ children, url }: WrapperProps) => {
+  if (url) {
+    return <a href={url}>{children}</a>
+  }
+  return <Fragment>{children}</Fragment>
 }
