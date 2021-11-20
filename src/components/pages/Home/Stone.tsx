@@ -32,7 +32,7 @@ export default function Stone({ image, draggable = false }: Props) {
 
     return (
       <div className="absolute flex items-center justify-center w-full h-screen overflow-hidden pointer-events-none">
-        <div className="fixed z-50 w-1/2">
+        <div className="fixed z-50 w-1/3">
           <Image
             src={image}
             alt=""
