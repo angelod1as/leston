@@ -10,12 +10,18 @@ export function Credits({ credits, isOpen }: CreditsProps) {
   if (isOpen) {
     return (
       <>
-        {credits.map(({ name, roles, gap }, idx) => {
+        {credits.map(({ name, roles, gap, url }, idx) => {
           const credKey = 'credit' + idx
           return (
             <Fragment key={credKey}>
               <p className="union">
-                {name}
+                {url ? (
+                  <a href={url} title={name} className="union">
+                    {name}
+                  </a>
+                ) : (
+                  name
+                )}
                 <span className="times">
                   {roles.split(' ').map((role, idx) => {
                     return (

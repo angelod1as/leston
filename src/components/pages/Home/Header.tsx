@@ -54,13 +54,16 @@ export default function Header({ handleToggleAbout }: Props) {
               {data['Multimedia Developer']},<br />
               {data['Creative Technologist']}
             </p>
-            <button className="times" onClick={() => scroll('archives')}>
+            <button className="times hover" onClick={() => scroll('archives')}>
               {data.Archive}
             </button>
-            <button className="times" onClick={handleToggleAbout}>
+            <button className="times hover" onClick={handleToggleAbout}>
               {data.About}
             </button>
-            <button className="times" onClick={() => scroll('highlights')}>
+            <button
+              className="times hover"
+              onClick={() => scroll('highlights')}
+            >
               {data.Highlights}
             </button>
 

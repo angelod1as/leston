@@ -85,7 +85,7 @@ export default function Project({ scope, compiledSource }: Props) {
 
   return (
     <button
-      className="block w-full pr-4 my-4 text-left transition-opacity cursor-pointer hover:opacity-90"
+      className="block w-full pr-4 my-4 text-left cursor-pointer hover:opacity-95"
       onClick={toggleOpen}
     >
       <div className="grid grid-cols-2 gap-2 lg:grid-cols-14">

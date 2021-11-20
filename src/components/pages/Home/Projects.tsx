@@ -26,7 +26,7 @@ export default function Projects({ projects: allProjects }: Props) {
   })
 
   return (
-    <div className="gap-2 mx-4 my-16 lg:mx-10">
+    <div className="gap-2 mx-4 my-16 transition-opacity lg:mx-10 ">
       <div id="highlights">
         {openProjects.map(({ compiledSource, scope }, idx) => {
           if (!scope) {

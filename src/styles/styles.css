@@ -42,10 +42,14 @@ button {
   @apply block;
 }
 
-button:hover {
+button.hover:hover {
   @apply transition-opacity opacity-70;
 }
 
 a {
-  @apply times;
+  @apply underline times;
+}
+
+a:hover{
+  @apply transition-opacity opacity-70
 }
