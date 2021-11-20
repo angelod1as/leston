@@ -7,7 +7,7 @@ type Props = {
   draggable?: boolean
 }
 
-export default function Stone({ image, draggable = true }: Props) {
+export default function Stone({ image, draggable = false }: Props) {
   const ref = useRef(null)
 
   if (image?.src) {
@@ -31,8 +31,8 @@ export default function Stone({ image, draggable = true }: Props) {
     }
 
     return (
-      <div className="absolute flex items-center justify-center w-full h-screen overflow-hidden">
-        <div className="fixed z-50">
+      <div className="absolute flex items-center justify-center w-full h-screen overflow-hidden pointer-events-none">
+        <div className="fixed z-50 w-1/2">
           <Image
             src={image}
             alt=""
