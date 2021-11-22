@@ -96,7 +96,7 @@ export default function Header({ handleToggleAbout }: Props) {
               {data.About}
             </button>
           </div>
-          <div className="mb-3">
+          <div className="mb-3 leston-ff">
             <Image src={logo} alt="LESTON" />
           </div>
         </div>

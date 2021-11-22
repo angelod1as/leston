@@ -70,3 +70,9 @@ a:hover{
 .ReactCollapse--collapse {
   transition: height 300ms;
 }
+
+  @-moz-document url-prefix() {
+    .leston-ff {
+      @apply mb-20 sm:bg-transparent ;
+    }
+  }
