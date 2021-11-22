@@ -36,7 +36,7 @@ export default function Project({ scope, compiledSource }: Props) {
 
   if (isOpen) {
     return (
-      <UnmountClosed isOpened={!open} theme={{ collapse: `collapse-summary` }}>
+      <UnmountClosed isOpened={isOpen} theme={{ collapse: `collapse-summary` }}>
         {/* Destkop */}
         <div className="hidden lg:block">
           <div className="mt-4 text-left mb-28 hover:opacity-100">
@@ -87,7 +87,7 @@ export default function Project({ scope, compiledSource }: Props) {
   }
 
   return (
-    <UnmountClosed isOpened={!open} theme={{ collapse: `collapse-summary` }}>
+    <UnmountClosed isOpened={!isOpen} theme={{ collapse: `collapse-summary` }}>
       <button
         className="block w-full pr-4 my-4 text-left cursor-pointer hover:opacity-95"
         onClick={toggleOpen}
