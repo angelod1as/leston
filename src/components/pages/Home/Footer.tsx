@@ -17,7 +17,7 @@ export default function Footer({
 }: Props) {
   return (
     <div
-      className={`fixed bottom-0 left-0 w-full z-[100] max-h-[50%] bg-white`}
+      className={`fixed bottom-0 left-0 w-full z-[100] max-h-[50%] bg-white overflow-y-scroll `}
     >
       <button
         onClick={handleToggleAbout}
