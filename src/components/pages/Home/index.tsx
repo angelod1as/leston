@@ -38,7 +38,7 @@ export default memo(function Home({ projects, about }: Props) {
 
   return (
     <div className="relative text-black" id="top">
-      <Stone image={image} />
+      {/* <Stone image={image} /> */}
 
       <Sidebar changeImage={changeImage} />
 

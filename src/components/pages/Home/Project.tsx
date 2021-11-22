@@ -1,6 +1,7 @@
 import ImageCarousel from '@components/ImageCarousel'
 import { MDXRemote } from 'next-mdx-remote'
 import { Fragment, useState } from 'react'
+import { UnmountClosed } from 'react-collapse'
 import { FrontMatter } from 'src/@types/types'
 import { Credits } from './Credits'
 
@@ -35,7 +36,7 @@ export default function Project({ scope, compiledSource }: Props) {
 
   if (isOpen) {
     return (
-      <>
+      <UnmountClosed isOpened={!open} theme={{ collapse: `collapse-summary` }}>
         {/* Destkop */}
         <div className="hidden lg:block">
           <div className="mt-4 text-left mb-28 hover:opacity-100">
@@ -81,29 +82,31 @@ export default function Project({ scope, compiledSource }: Props) {
             </button>
           </div>
         </div>
-      </>
+      </UnmountClosed>
     )
   }
 
   return (
-    <button
-      className="block w-full pr-4 my-4 text-left cursor-pointer hover:opacity-95"
-      onClick={toggleOpen}
-    >
-      <div className="grid grid-cols-2 gap-2 lg:grid-cols-14">
-        <div className="md:col-span-2 lg:col-span-4">{imageCompo}</div>
-        <div className="hidden xl:block ">{/* empty column */}</div>
-        <div className="col-span-1 lg:col-span-3 xl:col-span-2">
-          <h2 className="mt-[-2px]">{addBreak(title)}</h2>
+    <UnmountClosed isOpened={!open} theme={{ collapse: `collapse-summary` }}>
+      <button
+        className="block w-full pr-4 my-4 text-left cursor-pointer hover:opacity-95"
+        onClick={toggleOpen}
+      >
+        <div className="grid grid-cols-2 gap-2 lg:grid-cols-14">
+          <div className="md:col-span-2 lg:col-span-4">{imageCompo}</div>
+          <div className="hidden xl:block ">{/* empty column */}</div>
+          <div className="col-span-1 lg:col-span-3 xl:col-span-2">
+            <h2 className="mt-[-2px]">{addBreak(title)}</h2>
+          </div>
+          <div className="hidden col-span-3 lg:block">
+            <Credits credits={credits} isOpen={isOpen} />
+          </div>
+          <div className="hidden xl:block">{/* empty column */}</div>
+          <div className="hidden col-span-3 lg:block">
+            <MDXRemote compiledSource={excerpt} />
+          </div>
         </div>
-        <div className="hidden col-span-3 lg:block">
-          <Credits credits={credits} isOpen={isOpen} />
-        </div>
-        <div className="hidden xl:block">{/* empty column */}</div>
-        <div className="hidden col-span-3 lg:block">
-          <MDXRemote compiledSource={excerpt} />
-        </div>
-      </div>
-    </button>
+      </button>
+    </UnmountClosed>
   )
 }
