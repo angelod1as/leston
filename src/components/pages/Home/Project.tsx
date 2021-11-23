@@ -22,11 +22,12 @@ const addBreak = (string: string) => {
 type Props = {
   scope: FrontMatter
   compiledSource: string
+  open: boolean
 }
 
-export default function Project({ scope, compiledSource }: Props) {
-  const { images, credits, extraInfo, excerpt, title, highlight } = scope
-  const [isOpen, setIsOpen] = useState(highlight)
+export default function Project({ scope, compiledSource, open }: Props) {
+  const { images, credits, extraInfo, excerpt, title } = scope
+  const [isOpen, setIsOpen] = useState(open)
 
   const toggleOpen = () => {
     setIsOpen(state => !state)

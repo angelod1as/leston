@@ -31,7 +31,7 @@ export type FileData = {
   content: string
 }
 
-export type MdxProjects = MDXRemoteSerializeResult<FrontMatter>
+export type MdxProject = MDXRemoteSerializeResult<FrontMatter>
 
 export type About = {
   about: MDXRemoteSerializeResult<FrontMatter>

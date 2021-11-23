@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react'
-import { About, MdxProjects } from 'src/@types/types'
+import { About, MdxProject } from 'src/@types/types'
 import Footer from './Footer'
 import Header from './Header'
 import Projects from './Projects'
@@ -7,7 +7,7 @@ import Sidebar from './Sidebar'
 import Stone from './Stone'
 
 type Props = {
-  projects: MdxProjects[]
+  projects: MdxProject[]
   about: About
 }
 

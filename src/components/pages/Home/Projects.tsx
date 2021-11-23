@@ -1,19 +1,20 @@
 import isMobile from 'is-mobile'
-import { MdxProjects } from 'src/@types/types'
+import { MdxProject } from 'src/@types/types'
 import Project from './Project'
 
 type Props = {
-  projects: MdxProjects[]
+  projects: Array<MdxProject & { open: boolean }>
 }
 
 export default function Projects({ projects: allProjects }: Props) {
   const projects = allProjects
     .map(proj => {
       const newProj = proj
+      if (newProj.scope?.highlight) {
+        newProj.open = true
+      }
       if (isMobile()) {
-        if (newProj.scope) {
-          newProj.scope.highlight = false
-        }
+        newProj.open = false
       }
       return newProj
     })
@@ -42,13 +43,14 @@ export default function Projects({ projects: allProjects }: Props) {
   return (
     <div className="gap-2 mx-4 my-16 transition-opacity lg:mx-10 ">
       <div id="highlights">
-        {highlightProjects.map(({ compiledSource, scope }, idx) => {
+        {highlightProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null
           }
 
           return (
             <Project
+              open={open}
               scope={scope}
               compiledSource={compiledSource}
               key={'project' + idx}
@@ -57,13 +59,14 @@ export default function Projects({ projects: allProjects }: Props) {
         })}
       </div>
       <div id="archives">
-        {otherProjects.map(({ compiledSource, scope }, idx) => {
+        {otherProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null
           }
 
           return (
             <Project
+              open={open}
               scope={scope}
               compiledSource={compiledSource}
               key={'project' + idx}
