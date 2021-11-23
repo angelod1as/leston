@@ -29,12 +29,6 @@ export default function Footer({
       />
       <Collapse isOpened={aboutOpen}>
         <div className="relative mx-10 my-8 md:grid md:grid-cols-4 md:gap-4">
-          <button
-            className="absolute top-0 right-0 flex items-center justify-center w-3 h-3 p-3 text-white transition-opacity bg-black rounded-full hover:opacity-90"
-            onClick={handleToggleAbout}
-          >
-            ×
-          </button>
           <MDXRemote compiledSource={about.compiledSource} />
           <div className="col-start-3 my-8 md:m-0">
             <Image src={leston} alt="" className="z-[-1]" />
