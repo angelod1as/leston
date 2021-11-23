@@ -25,8 +25,8 @@ type Props = {
 }
 
 export default function Project({ scope, compiledSource }: Props) {
-  const { images, credits, extraInfo, excerpt, title, open } = scope
-  const [isOpen, setIsOpen] = useState(open)
+  const { images, credits, extraInfo, excerpt, title, highlight } = scope
+  const [isOpen, setIsOpen] = useState(highlight)
 
   const toggleOpen = () => {
     setIsOpen(state => !state)

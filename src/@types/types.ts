@@ -19,10 +19,11 @@ export type Images = {
 export type FrontMatter = {
   title: string
   excerpt: string
-  open: boolean
+  highlight: boolean
   extraInfo: string
   images: Images[]
   credits: Credits[]
+  order: number
 }
 
 export type FileData = {

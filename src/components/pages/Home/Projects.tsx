@@ -7,28 +7,42 @@ type Props = {
 }
 
 export default function Projects({ projects: allProjects }: Props) {
-  const projects = allProjects.map(proj => {
-    const newProj = proj
-    if (isMobile()) {
-      if (newProj.scope) {
-        newProj.scope.open = false
+  const projects = allProjects
+    .map(proj => {
+      const newProj = proj
+      if (isMobile()) {
+        if (newProj.scope) {
+          newProj.scope.highlight = false
+        }
       }
-    }
-    return newProj
+      return newProj
+    })
+    .sort((a, b) => {
+      const orderA = a.scope?.order
+      const orderB = b.scope?.order
+      if (orderA && orderB) {
+        if (orderA < orderB) {
+          return -1
+        }
+        if (orderA > orderB) {
+          return 1
+        }
+      }
+      return 0
+    })
+
+  const highlightProjects = projects.filter(({ scope }) => {
+    return scope?.highlight
   })
 
-  const openProjects = projects.filter(({ scope }) => {
-    return scope?.open
-  })
-
-  const closedProjects = projects.filter(({ scope }) => {
-    return !scope?.open
+  const otherProjects = projects.filter(({ scope }) => {
+    return !scope?.highlight
   })
 
   return (
     <div className="gap-2 mx-4 my-16 transition-opacity lg:mx-10 ">
       <div id="highlights">
-        {openProjects.map(({ compiledSource, scope }, idx) => {
+        {highlightProjects.map(({ compiledSource, scope }, idx) => {
           if (!scope) {
             return null
           }
@@ -43,7 +57,7 @@ export default function Projects({ projects: allProjects }: Props) {
         })}
       </div>
       <div id="archives">
-        {closedProjects.map(({ compiledSource, scope }, idx) => {
+        {otherProjects.map(({ compiledSource, scope }, idx) => {
           if (!scope) {
             return null
           }
