@@ -57,7 +57,7 @@ export default function Header({ handleToggleAbout }: Props) {
             <button className="times hover" onClick={() => scroll('archives')}>
               {data.Archive}
             </button>
-            <button className="times hover" onClick={handleToggleAbout}>
+            <button className="times hover" onClick={() => scroll('about')}>
               {data.About}
             </button>
             <button

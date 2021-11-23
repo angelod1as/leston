@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from 'react'
-import { About, MdxProjects } from 'src/@types/types'
+import type { About as AboutType, MdxProjects } from 'src/@types/types'
+import About from './About'
 import Footer from './Footer'
 import Header from './Header'
 import Projects from './Projects'
@@ -8,7 +9,7 @@ import Stone from './Stone'
 
 type Props = {
   projects: MdxProjects[]
-  about: About
+  about: AboutType
 }
 
 export default memo(function Home({ projects, about }: Props) {
@@ -56,11 +57,9 @@ export default memo(function Home({ projects, about }: Props) {
 
       <Projects projects={projects} />
 
-      <Footer
-        about={about}
-        aboutOpen={aboutOpen}
-        handleToggleAbout={handleToggleAbout}
-      />
+      <About about={about} />
+
+      <Footer />
     </div>
   )
 })
