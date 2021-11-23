@@ -36,16 +36,6 @@ export default memo(function Home({ projects, about }: Props) {
     setAboutOpen(state => !state)
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', function () {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        if (aboutOpen === false) {
-          setAboutOpen(true)
-        }
-      }
-    })
-  })
-
   return (
     <div className="relative text-black" id="top">
       <Stone image={image} />
