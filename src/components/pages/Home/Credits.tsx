@@ -14,15 +14,8 @@ export function Credits({ credits, isOpen }: CreditsProps) {
           const credKey = 'credit' + idx
           return (
             <Wrapper key={credKey} url={url}>
-              <p className="union">
+              <p className={`union ${url ? 'url' : ''}`}>
                 {name}
-                {/* {url ? (
-                  <a href={url} title={name} className="union">
-                    {name}
-                  </a>
-                ) : (
-                  name
-                )} */}
                 <span className="times">
                   {roles.split(' ').map((role, idx) => {
                     return (
