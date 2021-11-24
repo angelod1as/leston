@@ -25,12 +25,29 @@ type Props = {
   open: boolean
 }
 
+type Element = {
+  target: {
+    nodeName: string
+    className: string
+  }
+}
+
 export default function Project({ scope, compiledSource, open }: Props) {
   const { images, credits, extraInfo, excerpt, title } = scope
   const [isOpen, setIsOpen] = useState(open)
 
-  const toggleOpen = () => {
-    setIsOpen(state => !state)
+  const toggleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const nodes = ['span', 'a']
+
+    const element = e as unknown as Element
+    const target = element.target
+
+    const noNode = !nodes.includes(target.nodeName.toLowerCase())
+    const noClass = !target.className.includes('url')
+
+    if (noNode && noClass) {
+      setIsOpen(state => !state)
+    }
   }
 
   const imageCompo = <ImageCarousel images={images} isOpen={isOpen} />
