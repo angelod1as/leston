@@ -3,13 +3,13 @@ import { MdxProject } from 'src/@types/types'
 import Project from './Project'
 
 type Props = {
-  projects: Array<MdxProject & { open: boolean }>
+  projects: MdxProject[]
 }
 
 export default function Projects({ projects: allProjects }: Props) {
   const projects = allProjects
     .map(proj => {
-      const newProj = proj
+      const newProj = proj as unknown as MdxProject & { open: boolean }
       if (newProj.scope?.highlight) {
         newProj.open = true
       }

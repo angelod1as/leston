@@ -1,12 +1,12 @@
 import { serialize } from 'next-mdx-remote/serialize'
 import { getProjects, getAbout } from '@lib/api'
 import Home from '@components/pages/Home'
-import { About, MdxProjects } from 'src/@types/types'
+import { About, MdxProject } from 'src/@types/types'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 import useWindowDimensions from '@lib/useWindowDimensions'
 
 type ContentProps = {
-  projects: MdxProjects[]
+  projects: MdxProject[]
   about: About
 }
 

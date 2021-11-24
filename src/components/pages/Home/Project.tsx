@@ -41,12 +41,9 @@ export default function Project({ scope, compiledSource, open }: Props) {
 
     const element = e as unknown as Element
     const target = element.target
-    console.log(':DEV target: ', target)
 
     const noNode = !nodes.includes(target.nodeName.toLowerCase())
-    console.log(':DEV noNode: ', noNode)
     const noClass = !target.className.includes('url')
-    console.log(':DEV noClass: ', noClass)
 
     if (noNode && noClass) {
       setIsOpen(state => !state)
