@@ -18,7 +18,7 @@ const text = {
   },
   'pt-BR': {
     Artist: 'Artista',
-    Musician: 'Musicista',
+    Musician: 'Músico',
     'Multimedia Developer': 'Desenvolvedor Multimídia',
     'Creative Technologist': 'Creative Technologist',
     About: 'Sobre',
