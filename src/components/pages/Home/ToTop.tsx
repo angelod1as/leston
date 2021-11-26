@@ -20,5 +20,9 @@ export default function ToTop() {
     'en-US': 'Back to top',
   }
 
-  return <button onClick={handleClick}>{text[locale]}</button>
+  return (
+    <button onClick={handleClick} className="text-left w-28">
+      {text[locale]}
+    </button>
+  )
 }
