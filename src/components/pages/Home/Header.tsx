@@ -67,7 +67,7 @@ export default function Header({ handleToggleAbout }: Props) {
               {data.About}
             </button>
             <p>
-              hello@matheusleston.com <br />
+              m@leston.studio <br />
               @matheusleston
             </p>
           </div>
