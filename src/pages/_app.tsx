@@ -15,7 +15,6 @@ function App({ Component, pageProps }: AppProps) {
   )
 }
 
-// TODO: favicons & head
 function FirstHead() {
   return (
     <Head>
@@ -23,10 +22,18 @@ function FirstHead() {
       <base target="_blank" />
 
       {/* FAVICON */}
-      {/* <link rel="icon" href="/favicon.ico" />
-      <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
-      <link rel="apple-touch-icon" href="/apple.png" />
-      <link rel="manifest" href="/manifest.webmanifest"></link> */}
+      <link rel="shortcut icon" href="/favicon/favicon_v01.ico" />
+      <link
+        rel="icon"
+        type="image/png"
+        href="/favicon/Favicon_v01.png"
+        sizes="192x192"
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/favicon/apple-touch-icon-180x180_v01.png"
+      />
 
       {/* META */}
       {/* Primary Meta Tags */}
