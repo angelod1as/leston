@@ -2,11 +2,11 @@ import LocaleContext from '@components/LocaleContext'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import '../styles/styles.css'
-// import { useState } from 'react'
+import favicon from 'public/favicon/favicon_v01.ico'
+import favicon192 from 'public/favicon/Favicon_v01.png'
+import favicon180 from 'public/favicon/apple-touch-icon-180x180_v01.png'
 
 function App({ Component, pageProps }: AppProps) {
-  // const [loading, setLoading] = useState(false)
-
   return (
     <LocaleContext>
       <FirstHead />
@@ -22,18 +22,9 @@ function FirstHead() {
       <base target="_blank" />
 
       {/* FAVICON */}
-      <link rel="shortcut icon" href="/public/favicon/favicon_v02.ico" />
-      <link
-        rel="icon"
-        type="image/png"
-        href="/public/favicon/Favicon_v02.png"
-        sizes="192x192"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/public/favicon/apple-touch-icon-180x180_v02.png"
-      />
+      <link rel="shortcut icon" href={favicon.src} />
+      <link rel="icon" type="image/png" href={favicon192.src} sizes="192x192" />
+      <link rel="apple-touch-icon" sizes="180x180" href={favicon180.src} />
 
       {/* META */}
       {/* Primary Meta Tags */}
