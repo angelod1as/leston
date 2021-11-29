@@ -22,17 +22,17 @@ function FirstHead() {
       <base target="_blank" />
 
       {/* FAVICON */}
-      <link rel="shortcut icon" href="/favicon/favicon_v01.ico" />
+      <link rel="shortcut icon" href="/public/favicon/favicon_v02.ico" />
       <link
         rel="icon"
         type="image/png"
-        href="/favicon/Favicon_v01.png"
+        href="/public/favicon/Favicon_v02.png"
         sizes="192x192"
       />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/favicon/apple-touch-icon-180x180_v01.png"
+        href="/public/favicon/apple-touch-icon-180x180_v02.png"
       />
 
       {/* META */}
