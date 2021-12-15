@@ -27,7 +27,7 @@ const text = {
   },
 }
 
-const isIos: boolean = () => {
+const isIos = () => {
   if (navigator?.platform) {
     return (
       [
