@@ -23,8 +23,23 @@ const text = {
     'Creative Technologist': 'Creative Technologist',
     About: 'Sobre',
     Archive: 'Arquivo',
-    Highlights: 'Destaquest',
+    Highlights: 'Destaques',
   },
+}
+
+function isIos() {
+  return (
+    [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod',
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+  )
 }
 
 export default function Header({ handleToggleAbout }: Props) {
@@ -71,7 +86,7 @@ export default function Header({ handleToggleAbout }: Props) {
               @matheusleston
             </p>
           </div>
-          <div className="p-10 mb-3">
+          <div className="px-10 mb-4">
             <Image src={logo} alt="LESTON" />
           </div>
         </div>
@@ -95,7 +110,7 @@ export default function Header({ handleToggleAbout }: Props) {
               {data.About}
             </button>
           </div>
-          <div className="mb-3 leston-ff">
+          <div className={`leston-mobile ${isIos() ? 'leston-ios' : ''}`}>
             <Image src={logo} alt="LESTON" />
           </div>
         </div>

@@ -71,8 +71,16 @@ a:hover{
   transition: height 300ms;
 }
 
-  @-moz-document url-prefix() {
-    .leston-ff {
-      @apply mb-20 sm:bg-transparent ;
-    }
+.leston-mobile {
+  @apply mb-[4rem] sm:bg-transparent ;
+}
+
+.leston-ios {
+  @apply mb-[5.5rem]
+}
+
+@-moz-document url-prefix() {
+  .leston-mobile {
+    @apply mb-[4.25rem] sm:bg-transparent ;
   }
+}
