@@ -71,6 +71,15 @@ a:hover{
   transition: height 300ms;
 }
 
+.full-img div {
+   width: 100%
+}
+
+.full-img img {
+  width: 100%
+}
+
+
 .leston-mobile {
   @apply mb-[4rem] sm:bg-transparent ;
 }

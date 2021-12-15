@@ -38,7 +38,7 @@ const Index = (props: Props) => {
 
 export default Index
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async () => {
   const getLocaleProjects = async (locale: string) => {
     const projectsData = getProjects(locale, [
       'content',

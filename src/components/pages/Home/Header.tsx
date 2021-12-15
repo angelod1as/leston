@@ -92,8 +92,8 @@ export default function Header({ handleToggleAbout }: Props) {
               @matheusleston
             </p>
           </div>
-          <div className="px-10 mb-4">
-            <Image src={logo} alt="LESTON" />
+          <div className="w-full px-10 mb-4 full-img">
+            <Image src={logo} alt="LESTON" className="w-full" />
           </div>
         </div>
       </div>
