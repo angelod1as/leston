@@ -4,6 +4,7 @@ import Home from '@components/pages/Home'
 import { About, MdxProject } from 'src/@types/types'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 import useWindowDimensions from '@lib/useWindowDimensions'
+import { GetStaticProps } from 'next'
 
 type ContentProps = {
   projects: MdxProject[]
@@ -37,7 +38,7 @@ const Index = (props: Props) => {
 
 export default Index
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async context => {
   const getLocaleProjects = async (locale: string) => {
     const projectsData = getProjects(locale, [
       'content',
