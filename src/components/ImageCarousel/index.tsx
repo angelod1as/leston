@@ -55,7 +55,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
 
   if (isOpen) {
     return (
-      <div className="relative z-50">
+      <div className="relative z-40">
         <Carousel
           showThumbs={false}
           showIndicators={false}

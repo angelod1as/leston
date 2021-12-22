@@ -81,15 +81,15 @@ a:hover{
 
 
 .leston-mobile {
-  @apply mb-[4rem] sm:bg-transparent ;
+  @apply mb-5 sm:bg-transparent ;
 }
 
 .leston-ios {
-  @apply mb-[5.5rem]
+  @apply mb-5
 }
 
 @-moz-document url-prefix() {
   .leston-mobile {
-    @apply mb-[4.25rem] sm:bg-transparent ;
+    @apply mb-5 sm:bg-transparent ;
   }
 }

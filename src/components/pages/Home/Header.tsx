@@ -67,7 +67,7 @@ export default function Header({ handleToggleAbout }: Props) {
     <>
       {/* Desktop */}
       <div className="hidden md:block">
-        <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white">
+        <div className="relative z-30 flex flex-col items-center justify-between h-screen text-white">
           <div className="flex items-start justify-between w-full px-10 pt-6">
             <p>
               {data.Artist}, {data.Musician},
@@ -92,7 +92,7 @@ export default function Header({ handleToggleAbout }: Props) {
               @matheusleston
             </p>
           </div>
-          <div className="w-full px-10 mb-4 full-img">
+          <div className="fixed bottom-0 left-0 z-10 w-full px-10 mb-4 full-img">
             <Image src={logo} alt="LESTON" className="w-full" />
           </div>
         </div>
@@ -116,7 +116,11 @@ export default function Header({ handleToggleAbout }: Props) {
               {data.About}
             </button>
           </div>
-          <div className={`leston-mobile ${isIos() ? 'leston-ios' : ''}`}>
+          <div
+            className={`fixed bottom-0 left-0 z-10 leston-mobile px-8 ${
+              isIos() ? 'leston-ios' : ''
+            }`}
+          >
             <Image src={logo} alt="LESTON" />
           </div>
         </div>

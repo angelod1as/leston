@@ -57,7 +57,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
       <UnmountClosed isOpened={isOpen} theme={{ collapse: `collapse-summary` }}>
         {/* Destkop */}
         <div className="hidden lg:block">
-          <div className="pt-4 text-left mb-28 hover:opacity-100">
+          <div className="relative z-30 pt-4 text-left mb-28 hover:opacity-100">
             {imageCompo}
             <button
               className="grid gap-2 pt-5 text-left grid-cols-14"
@@ -82,7 +82,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
         </div>
         {/* Mobile */}
         <div className="lg:hidden">
-          <div className="pt-4 text-left mb-28 hover:opacity-100">
+          <div className="relative z-30 pt-4 text-left mb-28 hover:opacity-100">
             {imageCompo}
             <button className="text-left" onClick={toggleOpen}>
               <div className="pt-8 pr-4">
@@ -107,7 +107,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
   return (
     <UnmountClosed isOpened={!isOpen} theme={{ collapse: `collapse-summary` }}>
       <button
-        className="block w-full py-4 pr-4 text-left cursor-pointer hover:opacity-95"
+        className="relative z-30 block w-full py-4 pr-4 text-left cursor-pointer hover:opacity-95"
         onClick={toggleOpen}
       >
         <div className="grid grid-cols-2 gap-2 lg:grid-cols-14">

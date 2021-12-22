@@ -6,11 +6,9 @@ type Props = {
   changeImage: () => void
 }
 
-//
-
 export default function Sidebar({ changeImage }: Props) {
   return (
-    <div className="fixed flex text-right -rotate-90 gap-x-8 right-[-124px] bottom-44">
+    <div className="fixed flex text-right -rotate-90 gap-x-8 right-[-124px] bottom-44 z-50">
       <ToTop />
       <LangSwitcher />
       <StoneChange changeImage={changeImage} />
