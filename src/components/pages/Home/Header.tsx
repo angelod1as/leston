@@ -117,7 +117,7 @@ export default function Header({ handleToggleAbout }: Props) {
             </button>
           </div>
           <div
-            className={`fixed bottom-0 left-0 z-10 leston-mobile px-8 ${
+            className={`fixed bottom-0 left-0 z-10 leston-mobile px-2 ${
               isIos() ? 'leston-ios' : ''
             }`}
           >
