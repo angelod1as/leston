@@ -27,27 +27,6 @@ const text = {
   },
 }
 
-const isIos = () => {
-  if (typeof window !== 'undefined') {
-    if (navigator && navigator.platform) {
-      return (
-        [
-          'iPad Simulator',
-          'iPhone Simulator',
-          'iPod Simulator',
-          'iPad',
-          'iPhone',
-          'iPod',
-        ].includes(navigator.platform) ||
-        // iPad on iOS 13 detection
-        (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
-      )
-    }
-  }
-
-  return false
-}
-
 export default function Header({ handleToggleAbout }: Props) {
   const { locale } = useLocaleContext()
   const data = text[locale]
@@ -117,9 +96,7 @@ export default function Header({ handleToggleAbout }: Props) {
             </button>
           </div>
           <div
-            className={`fixed bottom-0 left-0 z-10 leston-mobile px-2 ${
-              isIos() ? 'leston-ios' : ''
-            }`}
+            className={`fixed bottom-0 left-0 z-10 mb-5 sm:bg-transparent px-2`}
           >
             <Image src={logo} alt="LESTON" />
           </div>
