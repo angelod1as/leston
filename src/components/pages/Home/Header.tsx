@@ -71,7 +71,7 @@ export default function Header({ handleToggleAbout }: Props) {
               @matheusleston
             </p>
           </div>
-          <div className="fixed bottom-0 left-0 z-10 w-full px-10 mb-4 full-img">
+          <div className="fixed bottom-0 left-0 z-10 w-full px-10 mb-12 full-img">
             <Image src={logo} alt="LESTON" className="w-full" />
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function Header({ handleToggleAbout }: Props) {
             </button>
           </div>
           <div
-            className={`fixed bottom-0 left-0 z-10 mb-5 sm:bg-transparent px-2`}
+            className={`fixed bottom-0 left-0 z-10 mb-6 sm:bg-transparent px-2`}
           >
             <Image src={logo} alt="LESTON" />
           </div>
