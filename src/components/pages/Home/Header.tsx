@@ -4,6 +4,7 @@ import logo from 'public/images/app/logo.svg'
 
 type Props = {
   handleToggleAbout: () => void
+  showTitle: boolean
 }
 
 const text = {
@@ -27,7 +28,7 @@ const text = {
   },
 }
 
-export default function Header({ handleToggleAbout }: Props) {
+export default function Header({ handleToggleAbout, showTitle }: Props) {
   const { locale } = useLocaleContext()
   const data = text[locale]
 
@@ -98,7 +99,7 @@ export default function Header({ handleToggleAbout }: Props) {
           <div
             className={`fixed bottom-0 left-0 z-10 mb-6 sm:bg-transparent px-2`}
           >
-            <Image src={logo} alt="LESTON" />
+            {showTitle && <Image src={logo} alt="LESTON" />}
           </div>
         </div>
       </div>
