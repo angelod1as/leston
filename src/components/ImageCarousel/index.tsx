@@ -55,7 +55,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
 
   if (isOpen) {
     return (
-      <div className="relative z-40">
+      <div className="relative z-50">
         <Carousel
           showThumbs={false}
           showIndicators={false}
@@ -91,7 +91,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
 
   const { video, height, width, path, alt } = images[0]
   return (
-    <div className="relative col-span-2">
+    <div className="relative z-50 col-span-2">
       {video ? (
         <div>{video && <Video video={video} alt={alt} />}</div>
       ) : (

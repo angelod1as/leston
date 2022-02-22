@@ -9,9 +9,10 @@ import Stone from './Stone'
 type Props = {
   projects: MdxProject[]
   about: About
+  showTitle: boolean
 }
 
-export default memo(function Home({ projects, about }: Props) {
+export default memo(function Home({ projects, about, showTitle }: Props) {
   const [aboutOpen, setAboutOpen] = useState(false)
   const [image, setImage] = useState<StaticImageData>({} as StaticImageData)
 
@@ -42,7 +43,7 @@ export default memo(function Home({ projects, about }: Props) {
 
       <Sidebar changeImage={changeImage} />
 
-      <Header handleToggleAbout={handleToggleAbout} />
+      <Header handleToggleAbout={handleToggleAbout} showTitle={showTitle} />
 
       <Projects projects={projects} />
 

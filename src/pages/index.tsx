@@ -5,6 +5,7 @@ import { About, MdxProject } from 'src/@types/types'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 import useWindowDimensions from '@lib/useWindowDimensions'
 import { GetStaticProps } from 'next'
+import { useEffect, useState } from 'react'
 
 type ContentProps = {
   projects: MdxProject[]
@@ -17,11 +18,20 @@ type Props = {
 }
 
 const Index = (props: Props) => {
+  const [showTitle, setShowTitle] = useState(true)
   const { locale } = useLocaleContext()
   const { about, projects } = props[locale]
 
   const { height, scroll } = useWindowDimensions()
   const dimension = scroll / 1 / height
+
+  useEffect(() => {
+    if (dimension < 1) {
+      setShowTitle(true)
+    } else {
+      setShowTitle(false)
+    }
+  }, [dimension])
 
   return (
     <div className="bg-black">
@@ -30,7 +40,7 @@ const Index = (props: Props) => {
           backgroundColor: `rgba(240,240,240,${dimension || 0})`,
         }}
       >
-        <Home projects={projects} about={about} />
+        <Home projects={projects} about={about} showTitle={showTitle} />
       </div>
     </div>
   )
