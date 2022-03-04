@@ -71,11 +71,11 @@ export default function Project({ scope, compiledSource, open }: Props) {
                 <h2 className="pt-[-2px]">{addBreak(title)}</h2>
               </div>
               <div className="col-span-3">
-                <Credits credits={credits} isOpen={isOpen} />
+                <MDXRemote compiledSource={extraInfo} />
               </div>
               <div>{/* empty column */}</div>
               <div className="col-span-3">
-                <MDXRemote compiledSource={extraInfo} />
+                <Credits credits={credits} isOpen={isOpen} />
               </div>
             </button>
           </div>
@@ -92,9 +92,10 @@ export default function Project({ scope, compiledSource, open }: Props) {
                 <MDXRemote compiledSource={compiledSource} />
               </div>
               <div className="pt-8 pr-4">
-                <Credits credits={credits} isOpen={isOpen} />
+                <MDXRemote compiledSource={extraInfo} />
+
                 <div className="pt-8 pr-4">
-                  <MDXRemote compiledSource={extraInfo} />
+                  <Credits credits={credits} isOpen={isOpen} />
                 </div>
               </div>
             </button>
