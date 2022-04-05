@@ -60,21 +60,21 @@ export default function Project({ scope, compiledSource, open }: Props) {
           <div className="relative pt-4 text-left mb-28">
             {imageCompo}
             <button
-              className="relative z-30 grid gap-2 pt-5 text-left grid-cols-14"
+              className="relative z-30 grid gap-2 pt-5 text-left grid-cols-18"
               onClick={toggleOpen}
             >
-              <div className="col-span-4">
+              <div className="col-span-5">
                 <MDXRemote compiledSource={compiledSource} />
               </div>
               <div className="hidden lg:block">{/* empty column */}</div>
-              <div className="col-span-2">
-                <h2 className="pt-[-2px]">{addBreak(title)}</h2>
-              </div>
               <div className="col-span-3">
+                <h2 className="pt-[-2px] break-words">{addBreak(title)}</h2>
+              </div>
+              <div className="col-span-4">
                 <MDXRemote compiledSource={extraInfo} />
               </div>
               <div>{/* empty column */}</div>
-              <div className="col-span-3">
+              <div className="col-span-4">
                 <Credits credits={credits} isOpen={isOpen} />
               </div>
             </button>
