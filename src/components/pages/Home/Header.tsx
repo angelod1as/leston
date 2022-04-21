@@ -89,7 +89,7 @@ export default function Header({ handleToggleAbout, showTitle }: Props) {
               {data['Creative Technologist']}
             </p>
             <p className="mt-4 break-words">
-              hello@matheusleston.com <br />
+              m@leston.studio <br />
               @matheusleston
             </p>
             <button className="mt-4 times" onClick={handleToggleAbout}>
