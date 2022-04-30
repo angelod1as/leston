@@ -117,7 +117,7 @@ export default function Header({ showTitle, about }: Props) {
 
   return (
     <>
-      <div className="relative z-10 flex flex-col items-start justify-between h-screen p-2 overflow-scroll text-white md:items-center">
+      <div className="relative z-10 flex flex-col items-start justify-between h-screen p-4 overflow-scroll text-white md:items-center">
         {/* Desktop */}
         <div className="items-start hidden w-full grid-cols-5 gap-4 px-10 pt-6 mb-0 md:grid ">
           <div className="flex flex-col mb-4 gap-y-4">
