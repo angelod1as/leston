@@ -40,7 +40,7 @@ const Index = (props: Props) => {
       <div>
         <div
           style={{
-            backgroundColor: `rgba(240,240,240,${dimension || 0})`,
+            backgroundColor: `rgba(0,0,0,${1 - dimension || 0})`,
           }}
         >
           <Home projects={projects} about={about} showTitle={showTitle} />
