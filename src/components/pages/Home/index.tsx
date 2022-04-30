@@ -3,7 +3,6 @@ import { About, MdxProject } from 'src/@types/types'
 import Footer from './Footer'
 import Header from './Header'
 import Projects from './Projects'
-import Sidebar from './Sidebar'
 import Stone from './Stone'
 
 type Props = {
@@ -40,8 +39,6 @@ export default memo(function Home({ projects, about, showTitle }: Props) {
   return (
     <div className="relative text-black" id="top">
       <Stone image={image} />
-
-      <Sidebar changeImage={changeImage} />
 
       <Header handleToggleAbout={handleToggleAbout} showTitle={showTitle} />
 
