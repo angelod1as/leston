@@ -1,23 +1,9 @@
 import ImageCarousel from '@components/ImageCarousel'
 import { MDXRemote } from 'next-mdx-remote'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import { UnmountClosed } from 'react-collapse'
 import { FrontMatter } from 'src/@types/types'
 import { Credits } from './Credits'
-
-const addBreak = (string: string) => {
-  return string.split(' ').map((word, idx, arr) => {
-    if (idx === arr.length - 1) {
-      return <Fragment key={idx}>{word}</Fragment>
-    }
-    return (
-      <Fragment key={idx}>
-        {word}
-        <br />
-      </Fragment>
-    )
-  })
-}
 
 type Props = {
   scope: FrontMatter
@@ -68,7 +54,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
               </div>
               <div className="hidden lg:block">{/* empty column */}</div>
               <div className="col-span-3">
-                <h2 className="pt-[-2px] break-words">{addBreak(title)}</h2>
+                <h2 className="pt-[-2px] break-words">{title}</h2>
               </div>
               <div className="col-span-4">
                 <MDXRemote compiledSource={extraInfo} />
@@ -119,7 +105,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
             {/* empty column */}
           </div>
           <div className="relative z-30 col-span-1 lg:col-span-3 xl:col-span-2">
-            <h2 className="pt-[-2px]">{addBreak(title)}</h2>
+            <h2 className="pt-[-2px]">{title}</h2>
           </div>
           <div className="relative z-30 hidden col-span-3 hover:z-30 lg:block">
             <Credits credits={credits} isOpen={isOpen} />
