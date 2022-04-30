@@ -98,7 +98,7 @@ export default function Header({ showTitle, about }: Props) {
   )
 
   const LestonWrapper: FC = ({ children }) => (
-    <div className="fixed bottom-0 left-0 z-10 px-2 mb-6 md:w-full md:px-10 md:full-img sm:bg-transparent ">
+    <div className="fixed bottom-0 left-0 z-10 px-4 mb-6 md:w-full md:px-10 md:full-img sm:bg-transparent ">
       {children}
     </div>
   )

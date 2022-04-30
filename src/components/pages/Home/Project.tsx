@@ -27,11 +27,14 @@ export default function Project({ scope, compiledSource, open }: Props) {
 
   const ProjectToggle: FC<{ noClick?: boolean }> = ({ noClick = false }) =>
     noClick ? (
-      <div className="text-left times">
+      <div className="overflow-visible text-left times">
         {isOpen ? data.CloseProject : data.OpenProject}
       </div>
     ) : (
-      <button onClick={toggleOpen} className="text-left times hover:opacity-50">
+      <button
+        onClick={toggleOpen}
+        className="overflow-visible text-left times hover:opacity-50"
+      >
         {isOpen ? data.CloseProject : data.OpenProject}
       </button>
     )
