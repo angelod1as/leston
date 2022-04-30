@@ -5,6 +5,7 @@ import Image from 'next/image'
 import logo from 'public/images/app/logo.svg'
 import { useState } from 'react'
 import { About } from 'src/@types/types'
+import leston from 'public/images/app/leston.png'
 
 type Props = {
   showTitle: boolean
@@ -88,7 +89,10 @@ export default function Header({ showTitle, about }: Props) {
   )
 
   const AboutLink = () => (
-    <button className="hidden times hover md:block" onClick={handleToggleAbout}>
+    <button
+      className="text-left times hover md:text-center"
+      onClick={handleToggleAbout}
+    >
       {aboutOpen ? data.CloseAbout : data.About}
     </button>
   )
@@ -109,18 +113,24 @@ export default function Header({ showTitle, about }: Props) {
     </div>
   )
 
+  const Locale = () => (
+    <div className="flex flex-col justify-center gap-y-4">
+      <LangSwitcher />
+    </div>
+  )
+
   return (
     <>
-      {/* Desktop */}
-      <div className="relative z-10 flex flex-col items-center justify-between h-screen p-2 text-white">
-        <div className="flex flex-col items-start justify-between w-full md:flex-row md:px-10 md:pt-6">
+      <div className="relative z-10 flex flex-col items-start justify-between h-screen p-2 overflow-scroll text-white md:items-center">
+        {/* <div className="flex flex-col items-start justify-between w-full md:flex-row md:px-10 md:pt-6"> */}
+        <div className="flex flex-col w-full gap-4 mb-28 md:grid md:items-start md:grid-cols-5 md:px-10 md:pt-6 md:mb-0 ">
           {aboutOpen ? (
             <>
               <About1 />
               <About2 />
+              <Image src={leston} alt="Leston picture" />
               <AboutLink />
               <Contact />
-              <LangSwitcher />
             </>
           ) : (
             <>
@@ -130,11 +140,11 @@ export default function Header({ showTitle, about }: Props) {
               <ArtisticLink />
               <ComissinedLink />
               <AboutLink />
-              <LangSwitcher />
+              <Locale />
             </>
           )}
         </div>
-        <div className="fixed bottom-0 left-0 z-10 px-2 mb-6 md:w-full md:px-10 md:mb-12 md:full-img sm:bg-transparent ">
+        <div className="fixed bottom-0 left-0 z-10 px-2 mb-6 md:w-full md:px-10 md:full-img sm:bg-transparent ">
           {showTitle && <Image src={logo} alt="LESTON" className="w-full" />}
         </div>
       </div>

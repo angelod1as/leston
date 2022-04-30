@@ -14,7 +14,7 @@ export default function LangSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-x-2">
+    <div className="flex items-center md:justify-center gap-x-2">
       <button
         onClick={() => handleClick('en-US')}
         className={getClassName('en-US')}

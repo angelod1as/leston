@@ -6,19 +6,6 @@ export default function Footer() {
         background:
           'linear-gradient(270deg, #58585B -51.04%, #F0F0F0 -23.96%, #929EA7 63.54%, #0B0C0F 93.75%)',
       }}
-    >
-      {/*
-      <Collapse isOpened={aboutOpen}>
-        <div className="relative mx-10 my-8 md:grid md:grid-cols-4 md:gap-4">
-          <MDXRemote compiledSource={about.compiledSource} />
-          <div className="col-start-3 my-8 md:m-0">
-            <Image src={leston} alt="" className="z-[-1]" />
-          </div>
-          <div className="col-start-4">
-            <MDXRemote compiledSource={contact.compiledSource} />
-          </div>
-        </div>
-      </Collapse> */}
-    </div>
+    ></div>
   )
 }
