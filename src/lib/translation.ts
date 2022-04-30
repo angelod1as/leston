@@ -1,0 +1,26 @@
+export const translation = {
+  'en-US': {
+    Artist: 'Artist',
+    Musician: 'Musician',
+    'Multimedia Developer': 'Multimedia Developer',
+    'Creative Technologist': 'Creative Technologist',
+    About: 'About',
+    CloseAbout: 'Close About',
+    Comissioned: 'Comissioned Projects',
+    Artistic: 'Artistic Projects',
+    CloseProject: 'Close project',
+    OpenProject: 'Open project',
+  },
+  'pt-BR': {
+    Artist: 'Artista',
+    Musician: 'Músico',
+    'Multimedia Developer': 'Desenvolvedor Multimídia',
+    'Creative Technologist': 'Creative Technologist',
+    CloseAbout: 'Fechar Sobre',
+    About: 'Sobre',
+    Comissioned: 'Projetos Comissionados',
+    Artistic: 'Projetos Autorais',
+    CloseProject: 'Fechar projeto',
+    OpenProject: 'Abrir projeto',
+  },
+}

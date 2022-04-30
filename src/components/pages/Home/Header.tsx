@@ -8,38 +8,16 @@ import { About } from 'src/@types/types'
 import leston from 'public/images/app/leston.png'
 import * as Dialog from '@radix-ui/react-dialog'
 import { FC } from 'react'
+import { translation } from '@lib/translation'
 
 type Props = {
   showTitle: boolean
   about: About
 }
 
-const text = {
-  'en-US': {
-    Artist: 'Artist',
-    Musician: 'Musician',
-    'Multimedia Developer': 'Multimedia Developer',
-    'Creative Technologist': 'Creative Technologist',
-    About: 'About',
-    CloseAbout: 'Close About',
-    Comissioned: 'Comissioned Projects',
-    Artistic: 'Artistic Projects',
-  },
-  'pt-BR': {
-    Artist: 'Artista',
-    Musician: 'Músico',
-    'Multimedia Developer': 'Desenvolvedor Multimídia',
-    'Creative Technologist': 'Creative Technologist',
-    CloseAbout: 'Fechar Sobre',
-    About: 'Sobre',
-    Comissioned: 'Projetos Comissionados',
-    Artistic: 'Projetos Autorais',
-  },
-}
-
 export default function Header({ showTitle, about }: Props) {
   const { locale } = useLocaleContext()
-  const data = text[locale]
+  const data = translation[locale]
 
   const scroll = (to: string) => {
     const section = document.getElementById(to)
