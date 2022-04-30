@@ -22,8 +22,8 @@ const text = {
     'Creative Technologist': 'Creative Technologist',
     About: 'About',
     CloseAbout: 'Close About',
-    Comissioned: 'Comissioned',
-    Artistic: 'Artistic',
+    Comissioned: 'Comissioned Projects',
+    Artistic: 'Artistic Projects',
   },
   'pt-BR': {
     Artist: 'Artista',
@@ -32,8 +32,8 @@ const text = {
     'Creative Technologist': 'Creative Technologist',
     CloseAbout: 'Fechar Sobre',
     About: 'Sobre',
-    Comissioned: 'Comissionados',
-    Artistic: 'Autorais',
+    Comissioned: 'Projetos Comissionados',
+    Artistic: 'Projetos Autorais',
   },
 }
 
