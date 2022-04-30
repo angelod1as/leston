@@ -13,7 +13,7 @@ export function Credits({ credits, isOpen }: CreditsProps) {
         {credits.map(({ name, roles, gap, url }, idx) => {
           const credKey = 'credit' + idx
           return (
-            <>
+            <Fragment key={idx}>
               <p className={`union ${url ? 'url' : ''}`}>
                 <Wrapper key={credKey} url={url}>
                   {name}
@@ -21,7 +21,7 @@ export function Credits({ credits, isOpen }: CreditsProps) {
                 <span className="times">{roles}</span>
               </p>
               {gap && <br />}
-            </>
+            </Fragment>
           )
         })}
       </>
