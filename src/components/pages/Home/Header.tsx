@@ -86,13 +86,13 @@ export default function Header({ showTitle, about }: Props) {
   )
 
   const AboutLink = () => (
-    <Dialog.Trigger className="text-left times hover md:text-center">
+    <Dialog.Trigger className="text-right times hover md:text-center">
       {data.About}
     </Dialog.Trigger>
   )
 
   const CloseAbout = () => (
-    <Dialog.Trigger className="text-left times hover md:text-center">
+    <Dialog.Trigger className="text-right times hover md:text-center">
       {data.CloseAbout}
     </Dialog.Trigger>
   )
@@ -140,7 +140,8 @@ export default function Header({ showTitle, about }: Props) {
   return (
     <>
       <div className="relative z-10 flex flex-col items-start justify-between h-screen p-2 overflow-scroll text-white md:items-center">
-        <div className="flex flex-col w-full gap-4 md:grid md:items-start md:grid-cols-5 md:px-10 md:pt-6 md:mb-0 ">
+        {/* Desktop */}
+        <div className="items-start hidden w-full grid-cols-5 gap-4 px-10 pt-6 mb-0 md:grid ">
           <div className="flex flex-col mb-4 gap-y-4">
             <Description />
           </div>
@@ -149,12 +150,25 @@ export default function Header({ showTitle, about }: Props) {
           <AboutLink />
           <Locale />
         </div>
+        {/* Mobile */}
+        <div className="flex justify-between w-full gap-4 md:hidden">
+          <div className="flex flex-col mb-4 gap-y-4">
+            <Description />
+          </div>
+          <div className="flex flex-col align-end gap-y-4">
+            <AboutLink />
+            <Locale />
+          </div>
+        </div>
         <LestonWhite />
       </div>
 
       <Dialog.Overlay className="fixed top-0 left-0 right-0 z-50 flex flex-col items-start justify-between h-full overflow-scroll overflow-y-auto bg-white md:items-center">
         <Dialog.Content className="md:h-full">
-          <div className="flex flex-col w-full gap-4 p-2 mb-5 bg-white md:mb-0 md:h-full md:grid md:items-start md:grid-cols-5 md:px-10 md:pt-8">
+          <div className="flex flex-col w-full gap-4 p-2 mb-5 bg-white md:mb-0 md:h-full md:grid md:items-start md:grid-cols-5 md:px-10 md:pt-8 pb-14">
+            <div className="flex flex-col justify-end md:hidden">
+              <CloseAbout />
+            </div>
             <About1 />
             <About2 />
             <Image src={leston} alt="Leston picture" />
@@ -162,9 +176,6 @@ export default function Header({ showTitle, about }: Props) {
               <CloseAbout />
             </div>
             <Contact />
-            <div className="block md:hidden">
-              <CloseAbout />
-            </div>
           </div>
           <div className="hidden md:block">
             <LestonBlack />
