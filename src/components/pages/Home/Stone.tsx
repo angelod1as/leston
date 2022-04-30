@@ -15,7 +15,7 @@ export default function Stone({ image, draggable = false }: Props) {
       return (
         <div className="absolute flex items-center justify-center w-full h-screen overflow-hidden">
           <Draggable nodeRef={ref}>
-            <div className="fixed z-40 flex justify-center w-1/3 cursor-move">
+            <div className="fixed z-20 flex justify-center w-1/3 cursor-move">
               <div className="pointer-events-none ">
                 <Image
                   src={image}
@@ -32,7 +32,7 @@ export default function Stone({ image, draggable = false }: Props) {
 
     return (
       <div className="absolute flex items-center justify-center w-full h-screen overflow-hidden pointer-events-none">
-        <div className="fixed z-40 w-1/2 md:w-1/3">
+        <div className="fixed z-20 w-1/2 md:w-1/3">
           <Image
             src={image}
             alt=""

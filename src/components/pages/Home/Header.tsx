@@ -47,7 +47,7 @@ export default function Header({ handleToggleAbout, showTitle }: Props) {
     <>
       {/* Desktop */}
       <div className="hidden md:block">
-        <div className="relative z-30 flex flex-col items-center justify-between h-screen text-white">
+        <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white">
           <div className="flex items-start justify-between w-full px-10 pt-6">
             <p>
               {data.Artist}, {data.Musician},
