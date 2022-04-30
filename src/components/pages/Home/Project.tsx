@@ -2,7 +2,7 @@ import ImageCarousel from '@components/ImageCarousel'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 import { translation } from '@lib/translation'
 import { MDXRemote } from 'next-mdx-remote'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { UnmountClosed } from 'react-collapse'
 import { FrontMatter } from 'src/@types/types'
 import { Credits } from './Credits'
@@ -25,8 +25,11 @@ export default function Project({ scope, compiledSource, open }: Props) {
 
   const imageCompo = <ImageCarousel images={images} isOpen={isOpen} />
 
-  const ProjectToggle = () => (
-    <button onClick={toggleOpen} className="text-left times hover:opacity-50">
+  const ProjectToggle: FC<{ noClick?: boolean }> = ({ noClick = false }) => (
+    <button
+      onClick={() => !noClick && toggleOpen}
+      className="text-left times hover:opacity-50"
+    >
       {isOpen ? data.CloseProject : data.OpenProject}
     </button>
   )
@@ -103,7 +106,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
           <div className="relative z-30 col-span-1 lg:col-span-3">
             <h2 className="pt-[-2px]">{title}</h2>
             <div className="hidden mt-4 md:block">
-              <ProjectToggle />
+              <ProjectToggle noClick />
             </div>
           </div>
           <div className="relative z-30 hidden col-span-4 hover:z-30 lg:block">
