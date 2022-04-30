@@ -15,19 +15,7 @@ export function Credits({ credits, isOpen }: CreditsProps) {
           return (
             <Wrapper key={credKey} url={url}>
               <p className={`union ${url ? 'url' : ''}`}>
-                {name}
-                <span className="times">
-                  {roles.split(' ').map((role, idx) => {
-                    return (
-                      <span
-                        className={`inline-block ${url ? 'underline' : ''}`}
-                        key={credKey + 'role' + idx}
-                      >
-                        {role}
-                      </span>
-                    )
-                  })}
-                </span>
+                {name} <span className="times">{roles}</span>
               </p>
               {gap && <br />}
             </Wrapper>
@@ -37,21 +25,8 @@ export function Credits({ credits, isOpen }: CreditsProps) {
     )
   }
 
-  const { name, roles } = credits[0]
-  return (
-    <p className="union">
-      {name}
-      <span className="times">
-        {roles.split(' ').map((role, idx) => {
-          return (
-            <span className="inline-block" key={'role' + idx}>
-              {role}
-            </span>
-          )
-        })}
-      </span>
-    </p>
-  )
+  const { name } = credits[0]
+  return <p className="union">{name}</p>
 }
 
 type WrapperProps = {
