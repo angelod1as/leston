@@ -27,7 +27,7 @@ const Index = (props: Props) => {
   const dimension = scroll / HEIGHT_SCROLL / height
 
   useEffect(() => {
-    if (dimension < HEIGHT_SCROLL) {
+    if (dimension < 2) {
       setShowTitle(true)
     } else {
       setShowTitle(false)
@@ -74,13 +74,13 @@ export const getStaticProps: GetStaticProps = async () => {
   const getLocaleAbouts = async (locale: string) => {
     const aboutData = getAbout(locale, ['content'])
 
-    const [about, contact] = await Promise.all(
+    const [about, about2, contact] = await Promise.all(
       aboutData.map(
         async ({ content, data }) => await serialize(content, { scope: data })
       )
     )
 
-    return { about, contact }
+    return { about, about2, contact }
   }
 
   const props = {

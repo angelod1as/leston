@@ -35,6 +35,7 @@ export type MdxProject = MDXRemoteSerializeResult<FrontMatter>
 
 export type About = {
   about: MDXRemoteSerializeResult<FrontMatter>
+  about2: MDXRemoteSerializeResult<FrontMatter>
   contact: MDXRemoteSerializeResult<FrontMatter>
 }
 

@@ -12,7 +12,6 @@ type Props = {
 }
 
 export default memo(function Home({ projects, about, showTitle }: Props) {
-  const [aboutOpen, setAboutOpen] = useState(false)
   const [image, setImage] = useState<StaticImageData>({} as StaticImageData)
 
   const getImage = async () => {
@@ -32,23 +31,15 @@ export default memo(function Home({ projects, about, showTitle }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleToggleAbout = () => {
-    setAboutOpen(state => !state)
-  }
-
   return (
     <div className="relative text-black" id="top">
       <Stone image={image} />
 
-      <Header handleToggleAbout={handleToggleAbout} showTitle={showTitle} />
+      <Header showTitle={showTitle} about={about} />
 
       <Projects projects={projects} />
 
-      <Footer
-        about={about}
-        aboutOpen={aboutOpen}
-        handleToggleAbout={handleToggleAbout}
-      />
+      <Footer />
     </div>
   )
 })

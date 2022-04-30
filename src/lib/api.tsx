@@ -36,6 +36,8 @@ export function getProjects(locale: string, fields: Fields[] = []) {
 export function getAbout(locale: string, fields: Fields[] = []) {
   const dir = join(contentDir, locale, 'about')
   const slugs = fs.readdirSync(dir)
-  const [about, contact] = slugs.map(slug => getContent(slug, fields, dir))
-  return [about, contact]
+  const [about, about2, contact] = slugs.map(slug =>
+    getContent(slug, fields, dir)
+  )
+  return [about, about2, contact]
 }
