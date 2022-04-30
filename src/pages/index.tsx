@@ -37,7 +37,7 @@ const Index = (props: Props) => {
 
   return (
     <Dialog.Root>
-      <div className="bg-black">
+      <div>
         <div
           style={{
             backgroundColor: `rgba(240,240,240,${dimension || 0})`,
