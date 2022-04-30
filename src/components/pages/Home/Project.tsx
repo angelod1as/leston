@@ -73,6 +73,9 @@ export default function Project({ scope, compiledSource, open }: Props) {
             <div className="relative z-30 text-left">
               <div className="pt-8 pr-4">
                 <h2 className="pt-[-2px]">{title}</h2>
+                <div className="mt-4">
+                  <ProjectToggle />
+                </div>
               </div>
               <div className="pt-8 pr-4">
                 <MDXRemote compiledSource={compiledSource} />
@@ -93,7 +96,10 @@ export default function Project({ scope, compiledSource, open }: Props) {
 
   return (
     <UnmountClosed isOpened={!isOpen} theme={{ collapse: `collapse-summary` }}>
-      <div className="relative block w-full py-4 pr-4 text-left">
+      <button
+        className="relative block w-full py-4 pr-4 text-left hover:opacity-80"
+        onClick={toggleOpen}
+      >
         <div className="relative grid grid-cols-2 gap-2 lg:grid-cols-18">
           <div className="relative z-30 md:col-span-2 lg:col-span-5">
             {imageCompo}
@@ -103,9 +109,6 @@ export default function Project({ scope, compiledSource, open }: Props) {
           </div>
           <div className="relative z-30 col-span-1 lg:col-span-3">
             <h2 className="pt-[-2px]">{title}</h2>
-            <div className="mt-4">
-              <ProjectToggle />
-            </div>
           </div>
           <div className="relative z-30 hidden col-span-4 hover:z-30 lg:block">
             <Credits credits={credits} isOpen={isOpen} />
@@ -117,7 +120,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
             <MDXRemote compiledSource={excerpt} />
           </div>
         </div>
-      </div>
+      </button>
     </UnmountClosed>
   )
 }

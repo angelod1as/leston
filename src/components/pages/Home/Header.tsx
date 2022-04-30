@@ -54,7 +54,7 @@ export default function Header({ showTitle, about }: Props) {
     </button>
   )
 
-  const ComissinedLink = () => (
+  const ComissionedLink = () => (
     <button
       className="hidden times hover md:block"
       onClick={() => scroll('comissioned')}
@@ -124,7 +124,7 @@ export default function Header({ showTitle, about }: Props) {
             <Description />
           </div>
           <ArtisticLink />
-          <ComissinedLink />
+          <ComissionedLink />
           <AboutLink />
           <Locale />
         </div>
