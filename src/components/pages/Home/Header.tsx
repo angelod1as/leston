@@ -117,7 +117,7 @@ export default function Header({ showTitle, about }: Props) {
 
   return (
     <>
-      <div className="relative z-10 flex flex-col items-start justify-between h-screen p-4 overflow-scroll text-white md:items-center">
+      <div className="relative z-10 flex flex-col items-start justify-between h-screen p-4 text-white md:items-center">
         {/* Desktop */}
         <div className="items-start hidden w-full grid-cols-5 gap-4 px-10 pt-6 mb-0 md:grid ">
           <div className="flex flex-col mb-4 gap-y-4">
@@ -141,7 +141,7 @@ export default function Header({ showTitle, about }: Props) {
         <LestonWhite />
       </div>
 
-      <Dialog.Overlay className="fixed top-0 left-0 right-0 z-50 flex flex-col items-start justify-between h-full overflow-scroll overflow-y-auto bg-white md:items-center">
+      <Dialog.Overlay className="fixed top-0 left-0 right-0 z-50 flex flex-col items-start justify-between h-full overflow-y-auto bg-white md:items-center">
         <Dialog.Content className="md:h-full">
           <div className="flex flex-col w-full gap-4 p-2 mb-5 bg-white md:mb-0 md:h-full md:grid md:items-start md:grid-cols-5 md:px-10 md:pt-8 pb-14">
             <div className="flex flex-col justify-end md:hidden">
