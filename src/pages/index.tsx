@@ -23,10 +23,11 @@ const Index = (props: Props) => {
   const { about, projects } = props[locale]
 
   const { height, scroll } = useWindowDimensions()
-  const dimension = scroll / 1 / height
+  const HEIGHT_SCROLL = 0.75
+  const dimension = scroll / HEIGHT_SCROLL / height
 
   useEffect(() => {
-    if (dimension < 1) {
+    if (dimension < HEIGHT_SCROLL) {
       setShowTitle(true)
     } else {
       setShowTitle(false)
