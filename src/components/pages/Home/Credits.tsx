@@ -13,12 +13,15 @@ export function Credits({ credits, isOpen }: CreditsProps) {
         {credits.map(({ name, roles, gap, url }, idx) => {
           const credKey = 'credit' + idx
           return (
-            <Wrapper key={credKey} url={url}>
+            <>
               <p className={`union ${url ? 'url' : ''}`}>
-                {name} <span className="times">{roles}</span>
+                <Wrapper key={credKey} url={url}>
+                  {name}
+                </Wrapper>{' '}
+                <span className="times">{roles}</span>
               </p>
               {gap && <br />}
-            </Wrapper>
+            </>
           )
         })}
       </>
