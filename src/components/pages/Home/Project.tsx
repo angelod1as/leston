@@ -25,14 +25,16 @@ export default function Project({ scope, compiledSource, open }: Props) {
 
   const imageCompo = <ImageCarousel images={images} isOpen={isOpen} />
 
-  const ProjectToggle: FC<{ noClick?: boolean }> = ({ noClick = false }) => (
-    <button
-      onClick={() => !noClick && toggleOpen}
-      className="text-left times hover:opacity-50"
-    >
-      {isOpen ? data.CloseProject : data.OpenProject}
-    </button>
-  )
+  const ProjectToggle: FC<{ noClick?: boolean }> = ({ noClick = false }) =>
+    noClick ? (
+      <div className="text-left times">
+        {isOpen ? data.CloseProject : data.OpenProject}
+      </div>
+    ) : (
+      <button onClick={toggleOpen} className="text-left times hover:opacity-50">
+        {isOpen ? data.CloseProject : data.OpenProject}
+      </button>
+    )
 
   if (isOpen) {
     return (
