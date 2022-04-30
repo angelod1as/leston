@@ -5,8 +5,8 @@ export default function LangSwitcher() {
   const { locale, changeLocale } = useLocaleContext()
 
   const getClassName = (lang: string): string => {
-    if (locale === lang) return 'union'
-    return 'times'
+    if (locale === lang) return 'union overflow-visible'
+    return 'times overflow-visible'
   }
 
   const handleClick = (lang: Locale) => {
