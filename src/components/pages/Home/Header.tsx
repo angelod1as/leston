@@ -6,6 +6,7 @@ import logo from 'public/images/app/logo.svg'
 import { useState } from 'react'
 import { About } from 'src/@types/types'
 import leston from 'public/images/app/leston.png'
+import * as Dialog from '@radix-ui/react-dialog'
 
 type Props = {
   showTitle: boolean
@@ -38,7 +39,6 @@ const text = {
 export default function Header({ showTitle, about }: Props) {
   const { locale } = useLocaleContext()
   const data = text[locale]
-  const [aboutOpen, setAboutOpen] = useState(false)
 
   const scroll = (to: string) => {
     const section = document.getElementById(to)
@@ -49,10 +49,6 @@ export default function Header({ showTitle, about }: Props) {
         inline: 'center',
       })
     }
-  }
-
-  const handleToggleAbout = () => {
-    setAboutOpen(state => !state)
   }
 
   const Description = () => (
@@ -89,12 +85,15 @@ export default function Header({ showTitle, about }: Props) {
   )
 
   const AboutLink = () => (
-    <button
-      className="text-left times hover md:text-center"
-      onClick={handleToggleAbout}
-    >
-      {aboutOpen ? data.CloseAbout : data.About}
-    </button>
+    <Dialog.Trigger className="text-left times hover md:text-center">
+      {data.About}
+    </Dialog.Trigger>
+  )
+
+  const CloseAbout = () => (
+    <Dialog.Trigger className="absolute grid w-5 text-black bg-white rounded-full top-2 right-2 place-items-center h-5w-5">
+      &#xd7;
+    </Dialog.Trigger>
   )
 
   const About1 = () => (
@@ -122,32 +121,29 @@ export default function Header({ showTitle, about }: Props) {
   return (
     <>
       <div className="relative z-10 flex flex-col items-start justify-between h-screen p-2 overflow-scroll text-white md:items-center">
-        {/* <div className="flex flex-col items-start justify-between w-full md:flex-row md:px-10 md:pt-6"> */}
-        <div className="flex flex-col w-full gap-4 mb-28 md:grid md:items-start md:grid-cols-5 md:px-10 md:pt-6 md:mb-0 ">
-          {aboutOpen ? (
-            <>
-              <About1 />
-              <About2 />
-              <Image src={leston} alt="Leston picture" />
-              <AboutLink />
-              <Contact />
-            </>
-          ) : (
-            <>
-              <div className="flex flex-col mb-4 gap-y-4">
-                <Description />
-              </div>
-              <ArtisticLink />
-              <ComissinedLink />
-              <AboutLink />
-              <Locale />
-            </>
-          )}
+        <div className="flex flex-col w-full gap-4 md:grid md:items-start md:grid-cols-5 md:px-10 md:pt-6 md:mb-0 ">
+          <div className="flex flex-col mb-4 gap-y-4">
+            <Description />
+          </div>
+          <ArtisticLink />
+          <ComissinedLink />
+          <AboutLink />
+          <Locale />
         </div>
         <div className="fixed bottom-0 left-0 z-10 px-2 mb-6 md:w-full md:px-10 md:full-img sm:bg-transparent ">
           {showTitle && <Image src={logo} alt="LESTON" className="w-full" />}
         </div>
       </div>
+
+      <Dialog.Overlay className="fixed top-0 left-0 right-0 z-50 flex flex-col items-start justify-between h-full p-4 overflow-scroll overflow-y-auto bg-black md:items-center bg-opacity-90">
+        <Dialog.Content className="flex flex-col w-full gap-4 p-2 mb-5 bg-white md:h-full md:grid md:items-start md:grid-cols-4 md:px-10 md:pt-6 ">
+          <CloseAbout />
+          <About1 />
+          <About2 />
+          <Image src={leston} alt="Leston picture" />
+          <Contact />
+        </Dialog.Content>
+      </Dialog.Overlay>
     </>
   )
 }

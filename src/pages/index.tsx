@@ -6,6 +6,7 @@ import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 import useWindowDimensions from '@lib/useWindowDimensions'
 import { GetStaticProps } from 'next'
 import { useEffect, useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 type ContentProps = {
   projects: MdxProject[]
@@ -35,15 +36,17 @@ const Index = (props: Props) => {
   }, [dimension])
 
   return (
-    <div className="bg-black">
-      <div
-        style={{
-          backgroundColor: `rgba(240,240,240,${dimension || 0})`,
-        }}
-      >
-        <Home projects={projects} about={about} showTitle={showTitle} />
+    <Dialog.Root>
+      <div className="bg-black">
+        <div
+          style={{
+            backgroundColor: `rgba(240,240,240,${dimension || 0})`,
+          }}
+        >
+          <Home projects={projects} about={about} showTitle={showTitle} />
+        </div>
       </div>
-    </div>
+    </Dialog.Root>
   )
 }
 

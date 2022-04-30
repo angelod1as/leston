@@ -15,6 +15,7 @@
     "ngrok": "ngrok http 3000"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^0.1.7",
     "@types/react-transition-group": "^4.4.4",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "dotenv": "^10.0.0",
