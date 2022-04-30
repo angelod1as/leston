@@ -3,33 +3,36 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Times';
-  src: url('/fonts/times-italic.otf');
-  font-style: italic;
-  font-weight: 400;
+  font-family: 'timesitalic';
+  src: url('/fonts/times-italic-webfont.woff2') format('woff2'),
+       url('/fonts/times-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: 'Union';
-  src: url('/fonts/Union-Regular.otf');
+  font-family: 'unionregular';
+  src: url('/fonts/union-regular-webfont.woff2') format('woff2'),
+       url('/fonts/union-regular-webfont.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
   font-display: swap;
 }
 
 @layer base {
   body {
-    font-family: Union, Arial, sans-serif;
+    font-family: 'unionregular', Arial, sans-serif;
     @apply text-[18px] leading-[20px];
   }
 
   .union {
-    font-family: Union, Arial, sans-serif;
+    font-family: 'unionregular', Arial, sans-serif;
     @apply text-[18px] leading-[20px];
   }
 
   .times {
-    font-family: Times, 'Times New Roman', serif;
+    font-family: 'timesitalic', 'Times New Roman', serif;
     @apply text-[19px] leading-[20px];
   }
 }

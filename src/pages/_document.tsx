@@ -4,20 +4,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link
-            rel="preload"
-            href="/fonts/times-italic.otf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/Union-Regular.otf"
-            as="font"
-            crossOrigin=""
-          />
-        </Head>
+        <Head></Head>
         <body className="bg-white">
           <Main />
           <NextScript />
