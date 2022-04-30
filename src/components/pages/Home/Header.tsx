@@ -158,10 +158,17 @@ export default function Header({ showTitle, about }: Props) {
             <About1 />
             <About2 />
             <Image src={leston} alt="Leston picture" />
-            <CloseAbout />
+            <div className="flex-col hidden md:flex">
+              <CloseAbout />
+            </div>
             <Contact />
+            <div className="block md:hidden">
+              <CloseAbout />
+            </div>
           </div>
-          <LestonBlack />
+          <div className="hidden md:block">
+            <LestonBlack />
+          </div>
         </Dialog.Content>
       </Dialog.Overlay>
     </>
