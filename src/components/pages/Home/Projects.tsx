@@ -42,7 +42,7 @@ export default function Projects({ projects: allProjects }: Props) {
 
   return (
     <div className="gap-2 mx-4 my-16 transition-opacity lg:mx-10 ">
-      <div id="highlights">
+      <div id="artistic">
         {highlightProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null
@@ -58,7 +58,7 @@ export default function Projects({ projects: allProjects }: Props) {
           )
         })}
       </div>
-      <div id="archives">
+      <div id="comissioned">
         {otherProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null

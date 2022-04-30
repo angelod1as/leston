@@ -1,3 +1,4 @@
+import LangSwitcher from '@components/LangSwitcher'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
 import Image from 'next/image'
 import logo from 'public/images/app/logo.svg'
@@ -14,8 +15,8 @@ const text = {
     'Multimedia Developer': 'Multimedia Developer',
     'Creative Technologist': 'Creative Technologist',
     About: 'About',
-    Archive: 'Archive',
-    Highlights: 'Highlights',
+    Comissioned: 'Comissioned',
+    Artistic: 'Artistic',
   },
   'pt-BR': {
     Artist: 'Artista',
@@ -23,8 +24,8 @@ const text = {
     'Multimedia Developer': 'Desenvolvedor Multimídia',
     'Creative Technologist': 'Creative Technologist',
     About: 'Sobre',
-    Archive: 'Arquivo',
-    Highlights: 'Destaques',
+    Comissioned: 'Comissionados',
+    Artistic: 'Autorais',
   },
 }
 
@@ -49,28 +50,31 @@ export default function Header({ handleToggleAbout, showTitle }: Props) {
       <div className="hidden md:block">
         <div className="relative z-10 flex flex-col items-center justify-between h-screen text-white">
           <div className="flex items-start justify-between w-full px-10 pt-6">
-            <p>
-              {data.Artist}, {data.Musician},
-              <br />
-              {data['Multimedia Developer']},<br />
-              {data['Creative Technologist']}
-            </p>
+            <div>
+              <p>
+                {data.Artist}, {data.Musician},
+                <br />
+                {data['Multimedia Developer']},<br />
+                {data['Creative Technologist']}
+              </p>
+              <p className="mt-4">
+                m@leston.studio <br />
+                @matheusleston
+              </p>
+            </div>
+            <button className="times hover" onClick={() => scroll('artistic')}>
+              {data.Artistic}
+            </button>
             <button
               className="times hover"
-              onClick={() => scroll('highlights')}
+              onClick={() => scroll('comissioned')}
             >
-              {data.Highlights}
-            </button>
-            <button className="times hover" onClick={() => scroll('archives')}>
-              {data.Archive}
+              {data.Comissioned}
             </button>
             <button className="times hover" onClick={handleToggleAbout}>
               {data.About}
             </button>
-            <p>
-              m@leston.studio <br />
-              @matheusleston
-            </p>
+            <LangSwitcher />
           </div>
           <div className="fixed bottom-0 left-0 z-10 w-full px-10 mb-12 full-img">
             {showTitle && <Image src={logo} alt="LESTON" className="w-full" />}

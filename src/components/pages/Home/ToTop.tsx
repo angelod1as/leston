@@ -5,9 +5,9 @@ export default function ToTop() {
   const { locale } = useLocaleContext()
 
   const handleClick = () => {
-    const archive = document.getElementById('top')
-    if (archive) {
-      archive.scrollIntoView({
+    const comissioned = document.getElementById('top')
+    if (comissioned) {
+      comissioned.scrollIntoView({
         block: 'start',
         behavior: 'smooth',
         inline: 'center',
