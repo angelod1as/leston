@@ -1,4 +1,6 @@
 import ImageCarousel from '@components/ImageCarousel'
+import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
+import { translation } from '@lib/translation'
 import { MDXRemote } from 'next-mdx-remote'
 import { useState } from 'react'
 import { UnmountClosed } from 'react-collapse'
@@ -20,23 +22,21 @@ type Element = {
 
 export default function Project({ scope, compiledSource, open }: Props) {
   const { images, credits, extraInfo, excerpt, title } = scope
+  const { locale } = useLocaleContext()
+  const data = translation[locale]
   const [isOpen, setIsOpen] = useState(open)
 
-  const toggleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const nodes = ['span', 'a']
-
-    const element = e as unknown as Element
-    const target = element.target
-
-    const noNode = !nodes.includes(target.nodeName.toLowerCase())
-    const noClass = !target.className.includes('url')
-
-    if (noNode && noClass) {
-      setIsOpen(state => !state)
-    }
+  const toggleOpen = () => {
+    setIsOpen(state => !state)
   }
 
   const imageCompo = <ImageCarousel images={images} isOpen={isOpen} />
+
+  const ProjectToggle = () => (
+    <button onClick={toggleOpen} className="text-left times hover:opacity-50">
+      {isOpen ? data.CloseProject : data.OpenProject}
+    </button>
+  )
 
   if (isOpen) {
     return (
@@ -45,16 +45,16 @@ export default function Project({ scope, compiledSource, open }: Props) {
         <div className="hidden lg:block">
           <div className="relative pt-4 text-left mb-28">
             {imageCompo}
-            <button
-              className="relative z-30 grid gap-2 pt-5 text-left grid-cols-18"
-              onClick={toggleOpen}
-            >
+            <div className="relative z-30 grid gap-2 pt-5 text-left grid-cols-18">
               <div className="col-span-5">
                 <MDXRemote compiledSource={compiledSource} />
               </div>
               <div className="hidden lg:block">{/* empty column */}</div>
               <div className="col-span-3">
                 <h2 className="pt-[-2px] break-words">{title}</h2>
+                <div className="mt-4">
+                  <ProjectToggle />
+                </div>
               </div>
               <div className="col-span-4">
                 <MDXRemote compiledSource={extraInfo} />
@@ -63,14 +63,14 @@ export default function Project({ scope, compiledSource, open }: Props) {
               <div className="col-span-4">
                 <Credits credits={credits} isOpen={isOpen} />
               </div>
-            </button>
+            </div>
           </div>
         </div>
         {/* Mobile */}
         <div className="lg:hidden">
           <div className="relative pt-4 text-left mb-28">
             {imageCompo}
-            <button className="relative z-30 text-left" onClick={toggleOpen}>
+            <div className="relative z-30 text-left">
               <div className="pt-8 pr-4">
                 <h2 className="pt-[-2px]">{title}</h2>
               </div>
@@ -84,7 +84,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
                   <Credits credits={credits} isOpen={isOpen} />
                 </div>
               </div>
-            </button>
+            </div>
           </div>
         </div>
       </UnmountClosed>
@@ -93,31 +93,31 @@ export default function Project({ scope, compiledSource, open }: Props) {
 
   return (
     <UnmountClosed isOpened={!isOpen} theme={{ collapse: `collapse-summary` }}>
-      <button
-        className="relative block w-full py-4 pr-4 text-left cursor-pointer"
-        onClick={toggleOpen}
-      >
-        <div className="relative grid grid-cols-2 gap-2 lg:grid-cols-14">
-          <div className="relative z-30 md:col-span-2 lg:col-span-4">
+      <div className="relative block w-full py-4 pr-4 text-left">
+        <div className="relative grid grid-cols-2 gap-2 lg:grid-cols-18">
+          <div className="relative z-30 md:col-span-2 lg:col-span-5">
             {imageCompo}
           </div>
-          <div className="relative z-30 hidden hover:z-30 xl:block ">
+          <div className="relative z-30 hidden hover:z-30 lg:block">
             {/* empty column */}
           </div>
-          <div className="relative z-30 col-span-1 lg:col-span-3 xl:col-span-2">
+          <div className="relative z-30 col-span-1 lg:col-span-3">
             <h2 className="pt-[-2px]">{title}</h2>
+            <div className="mt-4">
+              <ProjectToggle />
+            </div>
           </div>
-          <div className="relative z-30 hidden col-span-3 hover:z-30 lg:block">
+          <div className="relative z-30 hidden col-span-4 hover:z-30 lg:block">
             <Credits credits={credits} isOpen={isOpen} />
           </div>
-          <div className="relative z-30 hidden hover:z-30 xl:block">
+          <div className="relative z-30 hidden hover:z-30 lg:block">
             {/* empty column */}
           </div>
-          <div className="relative z-30 hidden col-span-3 hover:z-30 lg:block">
+          <div className="relative z-30 hidden col-span-4 hover:z-30 lg:block">
             <MDXRemote compiledSource={excerpt} />
           </div>
         </div>
-      </button>
+      </div>
     </UnmountClosed>
   )
 }
