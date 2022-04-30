@@ -13,13 +13,6 @@ type Props = {
   open: boolean
 }
 
-type Element = {
-  target: {
-    nodeName: string
-    className: string
-  }
-}
-
 export default function Project({ scope, compiledSource, open }: Props) {
   const { images, credits, extraInfo, excerpt, title } = scope
   const { locale } = useLocaleContext()
@@ -109,6 +102,9 @@ export default function Project({ scope, compiledSource, open }: Props) {
           </div>
           <div className="relative z-30 col-span-1 lg:col-span-3">
             <h2 className="pt-[-2px]">{title}</h2>
+            <div className="hidden mt-4 md:block">
+              <ProjectToggle />
+            </div>
           </div>
           <div className="relative z-30 hidden col-span-4 hover:z-30 lg:block">
             <Credits credits={credits} isOpen={isOpen} />
