@@ -29,7 +29,9 @@ const getContent = (
 export function getProjects(locale: string, fields: Fields[] = []) {
   const dir = join(contentDir, locale, 'projects')
   const slugs = fs.readdirSync(dir)
-  const projects = slugs.map(slug => getContent(slug, fields, dir))
+  const projects = slugs
+    .filter(slug => !slug.startsWith('.'))
+    .map(slug => getContent(slug, fields, dir))
   return projects
 }
 

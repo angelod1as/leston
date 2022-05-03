@@ -98,7 +98,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
   return (
     <UnmountClosed isOpened={!isOpen} theme={{ collapse: `collapse-summary` }}>
       <button
-        className="relative block w-full py-4 pr-4 text-left hover:opacity-80"
+        className="relative block w-full py-4 pr-4 text-left hover:opacity-80 hover:z-10"
         onClick={toggleOpen}
       >
         <div className="relative grid grid-cols-2 gap-2 lg:grid-cols-18">
