@@ -6,6 +6,7 @@ export type Credits = {
   roles: string
   gap?: boolean
   url?: string
+  prefix?: string
 }
 
 export type Images = {

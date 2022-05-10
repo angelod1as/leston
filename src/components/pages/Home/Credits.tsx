@@ -10,11 +10,12 @@ export function Credits({ credits, isOpen }: CreditsProps) {
   if (isOpen) {
     return (
       <>
-        {credits.map(({ name, roles, gap, url }, idx) => {
+        {credits.map(({ name, roles, gap, url, prefix }, idx) => {
           const credKey = 'credit' + idx
           return (
             <Fragment key={idx}>
               <p className={`union ${url ? 'url' : ''}`}>
+                {prefix && <span className="times">{prefix} </span>}
                 <Wrapper key={credKey} url={url}>
                   {name}
                 </Wrapper>{' '}
@@ -28,8 +29,13 @@ export function Credits({ credits, isOpen }: CreditsProps) {
     )
   }
 
-  const { name } = credits[0]
-  return <p className="union">{name}</p>
+  const { name, prefix } = credits[0]
+  return (
+    <p className="union">
+      {prefix && <span className="times">{prefix} </span>}
+      {name}
+    </p>
+  )
 }
 
 type WrapperProps = {
