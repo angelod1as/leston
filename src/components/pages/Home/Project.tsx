@@ -43,7 +43,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
     return (
       <UnmountClosed isOpened={isOpen} theme={{ collapse: `collapse-summary` }}>
         {/* Destkop */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block hover:z-20">
           <div className="relative pt-4 text-left mb-28">
             {imageCompo}
             <div className="relative z-30 grid gap-2 pt-5 text-left grid-cols-18">
@@ -98,7 +98,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
   return (
     <UnmountClosed isOpened={!isOpen} theme={{ collapse: `collapse-summary` }}>
       <button
-        className="relative block w-full py-4 pr-4 text-left hover:opacity-80 hover:z-10"
+        className="relative block w-full py-4 pr-4 text-left hover:opacity-80 hover:z-20"
         onClick={toggleOpen}
       >
         <div className="relative grid grid-cols-2 gap-2 lg:grid-cols-18">
