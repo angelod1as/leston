@@ -9,13 +9,19 @@ type Props = {
   projects: MdxProject[]
   about: About
   showTitle: boolean
+  stoneNumber: number
 }
 
-export default memo(function Home({ projects, about, showTitle }: Props) {
+export default memo(function Home({
+  projects,
+  about,
+  showTitle,
+  stoneNumber,
+}: Props) {
   const [image, setImage] = useState<StaticImageData>({} as StaticImageData)
 
   const getImage = async () => {
-    const number = Math.floor(Math.random() * 19) + 1
+    const number = Math.floor(Math.random() * stoneNumber) + 1
     const image = await import(`public/images/stone/${number}.png`)
     return image
   }

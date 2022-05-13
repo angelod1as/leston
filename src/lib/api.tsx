@@ -43,3 +43,11 @@ export function getAbout(locale: string, fields: Fields[] = []) {
   )
   return [about, about2, contact]
 }
+
+export function getStoneNumber() {
+  const dir = join(process.cwd(), 'public', 'images', 'stone')
+  const number = fs
+    .readdirSync(dir)
+    .filter(item => item.includes('.png')).length
+  return number
+}

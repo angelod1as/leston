@@ -1,5 +1,5 @@
 import { serialize } from 'next-mdx-remote/serialize'
-import { getProjects, getAbout } from '@lib/api'
+import { getProjects, getAbout, getStoneNumber } from '@lib/api'
 import Home from '@components/pages/Home'
 import { About, MdxProject } from 'src/@types/types'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
@@ -16,12 +16,14 @@ type ContentProps = {
 type Props = {
   'pt-BR': ContentProps
   'en-US': ContentProps
+  stoneNumber: number
 }
 
 const Index = (props: Props) => {
   const [showTitle, setShowTitle] = useState(true)
   const { locale } = useLocaleContext()
   const { about, projects } = props[locale]
+  const { stoneNumber } = props
 
   const { height, scroll } = useWindowDimensions()
   const HEIGHT_SCROLL = 0.75
@@ -43,7 +45,12 @@ const Index = (props: Props) => {
             backgroundColor: `rgba(240,240,240,${dimension || 0})`,
           }}
         >
-          <Home projects={projects} about={about} showTitle={showTitle} />
+          <Home
+            projects={projects}
+            about={about}
+            showTitle={showTitle}
+            stoneNumber={stoneNumber}
+          />
         </div>
       </div>
     </Dialog.Root>
@@ -53,6 +60,7 @@ const Index = (props: Props) => {
 export default Index
 
 export const getStaticProps: GetStaticProps = async () => {
+  const stoneNumber = getStoneNumber()
   const getLocaleProjects = async (locale: string) => {
     const projectsData = getProjects(locale, [
       'content',
@@ -95,6 +103,7 @@ export const getStaticProps: GetStaticProps = async () => {
       projects: await getLocaleProjects('en'),
       about: await getLocaleAbouts('en'),
     },
+    stoneNumber,
   }
 
   return { props }

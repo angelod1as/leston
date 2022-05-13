@@ -72,6 +72,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
                   <Image
                     height={height}
                     width={width}
+                    layout="responsive"
                     src={'/images' + path}
                     alt={alt}
                   />
