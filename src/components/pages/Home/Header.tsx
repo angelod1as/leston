@@ -1,6 +1,5 @@
 import LangSwitcher from '@components/LangSwitcher'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
-import { MDXRemote } from 'next-mdx-remote'
 import Image from 'next/image'
 import logoWhite from 'public/images/app/logo.svg'
 import logoBlack from 'public/images/app/logo-black.svg'
@@ -9,6 +8,7 @@ import leston from 'public/images/app/leston.png'
 import * as Dialog from '@radix-ui/react-dialog'
 import { FC } from 'react'
 import { translation } from '@lib/translation'
+import { MDX } from '@components/MDX'
 
 type Props = {
   showTitle: boolean
@@ -77,17 +77,17 @@ export default function Header({ showTitle, about }: Props) {
 
   const About1 = () => (
     <div>
-      <MDXRemote compiledSource={about.about.compiledSource} />
+      <MDX compiledSource={about.about.compiledSource} />
     </div>
   )
   const About2 = () => (
     <div>
-      <MDXRemote compiledSource={about.about2.compiledSource} />
+      <MDX compiledSource={about.about2.compiledSource} />
     </div>
   )
   const Contact = () => (
     <div>
-      <MDXRemote compiledSource={about.contact.compiledSource} />
+      <MDX compiledSource={about.contact.compiledSource} />
     </div>
   )
 
