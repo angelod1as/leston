@@ -1,7 +1,7 @@
 import ImageCarousel from '@components/ImageCarousel'
 import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
+import { MDX } from '@components/MDX'
 import { translation } from '@lib/translation'
-import { MDXRemote } from 'next-mdx-remote'
 import { FC, useState } from 'react'
 import { UnmountClosed } from 'react-collapse'
 import { FrontMatter } from 'src/@types/types'
@@ -48,7 +48,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
             {imageCompo}
             <div className="relative z-30 grid gap-2 pt-5 text-left grid-cols-18">
               <div className="col-span-5">
-                <MDXRemote compiledSource={compiledSource} />
+                <MDX compiledSource={compiledSource} />
               </div>
               <div className="hidden lg:block">{/* empty column */}</div>
               <div className="col-span-3">
@@ -58,7 +58,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
                 </div>
               </div>
               <div className="col-span-4">
-                <MDXRemote compiledSource={extraInfo} />
+                <MDX compiledSource={extraInfo} />
               </div>
               <div>{/* empty column */}</div>
               <div className="col-span-4">
@@ -79,10 +79,10 @@ export default function Project({ scope, compiledSource, open }: Props) {
                 </div>
               </div>
               <div className="pt-8 pr-4">
-                <MDXRemote compiledSource={compiledSource} />
+                <MDX compiledSource={compiledSource} />
               </div>
               <div className="pt-8 pr-4">
-                <MDXRemote compiledSource={extraInfo} />
+                <MDX compiledSource={extraInfo} />
 
                 <div className="pt-8 pr-4">
                   <Credits credits={credits} isOpen={isOpen} />
@@ -121,7 +121,7 @@ export default function Project({ scope, compiledSource, open }: Props) {
             {/* empty column */}
           </div>
           <div className="relative z-30 hidden col-span-4 hover:z-30 lg:block">
-            <MDXRemote compiledSource={excerpt} />
+            <MDX compiledSource={excerpt} />
           </div>
         </div>
       </button>
