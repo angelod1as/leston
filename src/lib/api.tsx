@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { FileData, FrontMatter } from 'src/@types/types'
+import { FileData, FrontMatter, PageData } from 'src/@types/types'
 
 const contentDir = join(process.cwd(), 'src', 'content')
 // const localesDir = [join(contentDir, 'en'), join(contentDir, 'pt')]
@@ -52,7 +52,7 @@ export function getStoneNumber() {
   return number
 }
 
-export function getPages(fields: Fields[] = []) {
+export function getPages(fields: Fields[] = []): PageData[] {
   const dir = join(contentDir, 'pages')
   const slugs = fs.readdirSync(dir)
   const projects = slugs

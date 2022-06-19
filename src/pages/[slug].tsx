@@ -2,12 +2,18 @@ import { getPages } from '@lib/api'
 import React from 'react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { GetStaticProps } from 'next'
+import { Page } from '@components/pages/Page'
+import { MdxPage, MdxProject, PageData } from 'src/@types/types'
 
-const Page = () => {
-  return <div>Page</div>
+type SlugPageProps = {
+  pageData: MdxPage
 }
 
-export default Page
+const SlugPage = ({ pageData }: SlugPageProps) => {
+  return <Page pageData={pageData} />
+}
+
+export default SlugPage
 
 export async function getStaticPaths() {
   const projectsData = getPages()
@@ -20,23 +26,29 @@ export async function getStaticPaths() {
   }
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const getPageData = async () => {
-    const projectsData = getPages(['content'])
+    const projectsData: PageData[] = getPages(['content'])
 
-    return await Promise.all(
-      projectsData.map(async ({ content, data }) => {
+    const pages = (await Promise.all(
+      projectsData.map(async ({ content, data, slug }) => {
         return await serialize(content, {
           scope: {
             ...data,
+            slug,
           },
         })
       })
-    )
+    )) as MdxPage[]
+
+    return pages
   }
 
+  const allPages = await getPageData()
+  const pageData = allPages.find(page => page.scope?.slug === params?.slug)
+
   const props = {
-    pageData: await getPageData(),
+    pageData,
   }
 
   return { props }
