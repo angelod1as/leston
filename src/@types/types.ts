@@ -27,12 +27,24 @@ export type FrontMatter = {
   order: number
 }
 
+export type PageFrontmatter = {
+  title: string
+  slug: string
+}
+
 export type FileData = {
   data: FrontMatter
   content: string
 }
 
+export type PageData = {
+  data: FrontMatter
+  content: string
+  slug: string
+}
+
 export type MdxProject = MDXRemoteSerializeResult<FrontMatter>
+export type MdxPage = MDXRemoteSerializeResult<PageFrontmatter>
 
 export type About = {
   about: MDXRemoteSerializeResult<FrontMatter>

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { FileData, FrontMatter } from 'src/@types/types'
+import { FileData, FrontMatter, PageData } from 'src/@types/types'
 
 const contentDir = join(process.cwd(), 'src', 'content')
 // const localesDir = [join(contentDir, 'en'), join(contentDir, 'pt')]
@@ -50,4 +50,16 @@ export function getStoneNumber() {
     .readdirSync(dir)
     .filter(item => item.includes('.png')).length
   return number
+}
+
+export function getPages(fields: Fields[] = []): PageData[] {
+  const dir = join(contentDir, 'pages')
+  const slugs = fs.readdirSync(dir)
+  const projects = slugs
+    .filter(slug => !slug.startsWith('.'))
+    .map(slug => ({
+      ...getContent(slug, fields, dir),
+      slug: slug.replace('.mdx', ''),
+    }))
+  return projects
 }
