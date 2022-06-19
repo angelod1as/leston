@@ -1,9 +1,8 @@
 import { getPages } from '@lib/api'
-import React from 'react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { GetStaticProps } from 'next'
 import { Page } from '@components/pages/Page'
-import { MdxPage, MdxProject, PageData } from 'src/@types/types'
+import { MdxPage, PageData } from 'src/@types/types'
 
 type SlugPageProps = {
   pageData: MdxPage
