@@ -51,3 +51,15 @@ export function getStoneNumber() {
     .filter(item => item.includes('.png')).length
   return number
 }
+
+export function getPages(fields: Fields[] = []) {
+  const dir = join(contentDir, 'pages')
+  const slugs = fs.readdirSync(dir)
+  const projects = slugs
+    .filter(slug => !slug.startsWith('.'))
+    .map(slug => ({
+      ...getContent(slug, fields, dir),
+      slug: slug.replace('.mdx', ''),
+    }))
+  return projects
+}
