@@ -54,7 +54,6 @@ function FirstHead() {
         content="ABSOLUTE PATH OF SOCIAL IMAGE"
       /> */}
       <meta name="keywords" content="LESTON" />
-      <meta name="author" content="Angelo Dias <oiangelodias@gmail.com>" />
       <meta name="url" content="https://leston.com.br" />
     </Head>
   )
