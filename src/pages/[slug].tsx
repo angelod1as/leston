@@ -3,13 +3,23 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { GetStaticProps } from 'next'
 import { Page } from '@components/pages/Page'
 import { MdxPage, PageData } from 'src/@types/types'
+import Head from 'next/head'
 
 type SlugPageProps = {
   pageData: MdxPage
 }
 
 const SlugPage = ({ pageData }: SlugPageProps) => {
-  return <Page pageData={pageData} />
+  return (
+    <>
+      <Head>
+        {pageData.scope?.title && (
+          <title key="title">{pageData.scope.title}</title>
+        )}
+      </Head>
+      <Page pageData={pageData} />
+    </>
+  )
 }
 
 export default SlugPage
