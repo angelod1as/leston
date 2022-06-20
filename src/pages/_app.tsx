@@ -16,6 +16,11 @@ function App({ Component, pageProps }: AppProps) {
 }
 
 function FirstHead() {
+  const description =
+    'Artist, Musician, Multimedia Developer, Creative Technologist'
+  const title = 'LESTON'
+  const social = 'https://leston.studio/images/app/social/1080.jpg'
+
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,31 +34,29 @@ function FirstHead() {
       {/* META */}
       {/* Primary Meta Tags */}
       <title key="title">LESTON</title>
-      <meta name="title" key="meta-title" content="LESTON" />
-      <meta name="description" key="meta-description" content="LESTON" />
+      <meta name="title" key="meta-title" content={title} />
+      <meta name="description" key="meta-description" content={description} />
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://leston.com.br" />
-      <meta property="og:title" key="og:title" content="LESTON" />
-      <meta property="og:description" key="og:description" content="LESTON" />
-      {/* <meta
-        property="og:image"
-        content="ABSOLUTE PATH OF SOCIAL IMAGE"
-      /> */}
+      <meta property="og:title" key="og:title" content={title} />
+      <meta
+        property="og:description"
+        key="og:description"
+        content={description}
+      />
+      <meta property="og:image" content={social} />
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://leston.com.br" />
-      <meta property="twitter:title" key="tw:title" content="LESTON" />
+      <meta property="twitter:title" key="tw:title" content={title} />
       <meta
         property="twitter:description"
         key="tw:description"
-        content="LESTON"
+        content={description}
       />
-      {/* <meta
-        property="twitter:image"
-        content="ABSOLUTE PATH OF SOCIAL IMAGE"
-      /> */}
-      <meta name="keywords" content="LESTON" />
+      <meta property="twitter:image" content={social} />
+      <meta name="keywords" content={description} />
       <meta name="url" content="https://leston.com.br" />
     </Head>
   )
