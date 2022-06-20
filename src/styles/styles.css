@@ -41,6 +41,10 @@ h2 {
   @apply union uppercase font-bold md:font-normal text-2xl 2xl:text-[34px] 2xl:leading-[37px];
 }
 
+.page-title {
+  @apply union uppercase font-bold md:font-normal text-2xl 2xl:text-[34px];
+}
+
 button {
   @apply block;
 }
