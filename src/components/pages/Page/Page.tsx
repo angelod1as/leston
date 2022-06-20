@@ -2,25 +2,33 @@ import { MDXRemote } from 'next-mdx-remote'
 import Image from 'next/image'
 import { ReactNode } from 'react'
 import { MdxPage } from 'src/@types/types'
+import Footer from '../Home/Footer'
 
 type PageProps = {
   pageData: MdxPage
 }
 
+const titleGrid =
+  'mb-8 md:m-0 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full '
 const columnGrid =
-  'mb-8 md:m-0 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full'
+  'flex flex-col mb-8 md:m-0 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full'
 
 const components: Record<string, ReactNode> = {
   p: (props: JSX.IntrinsicElements['p']) => <p {...props} className="mb-5" />,
   Title: (props: JSX.IntrinsicElements['h1']) => (
-    <h1 {...props}>{props.children}</h1>
+    <h1 {...props} className="page-title">
+      {props.children}
+    </h1>
   ),
-  Subtitle: (props: JSX.IntrinsicElements['p']) => <p {...props} />,
+  Subtitle: (props: JSX.IntrinsicElements['p']) => (
+    <p className="self-end mt-4 md:pb-1 md:mt-0 times" {...props} />
+  ),
 
   // COLUMNS
-  Row: (props: JSX.IntrinsicElements['div']) => (
-    <div {...props} className={columnGrid} />
-  ),
+  Row: (props: JSX.IntrinsicElements['div'] | { title: boolean }) => {
+    const { title, ...rest } = props
+    return <div {...rest} className={title ? titleGrid : columnGrid} />
+  },
   Col1: (props: JSX.IntrinsicElements['div']) => (
     <div {...props} className="md:col-span-1" />
   ),
@@ -44,7 +52,7 @@ const components: Record<string, ReactNode> = {
     return (
       <figure>
         <Image alt={alt} src={'/images' + path} height={height} width={width} />
-        <figcaption>{children}</figcaption>
+        {children && <figcaption className="mt-4">{children}</figcaption>}
       </figure>
     )
   },
@@ -57,13 +65,16 @@ const components: Record<string, ReactNode> = {
 
 export const Page = ({ pageData }: PageProps) => {
   return (
-    <div className="m-8 mb-12">
-      <div className={columnGrid}>
-        <MDXRemote
-          compiledSource={pageData.compiledSource}
-          components={components}
-        />
+    <>
+      <div className="m-8 mb-12">
+        <div className={columnGrid}>
+          <MDXRemote
+            compiledSource={pageData.compiledSource}
+            components={components}
+          />
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   )
 }
