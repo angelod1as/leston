@@ -9,19 +9,21 @@ type PageProps = {
 }
 
 const titleGrid =
-  'mb-8 md:m-0 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full '
+  'mb-8 md:m-0 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full'
 const columnGrid =
-  'flex flex-col mb-8 md:m-0 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full'
+  'gap-y-4 grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full'
 
 const components: Record<string, ReactNode> = {
-  p: (props: JSX.IntrinsicElements['p']) => <p {...props} className="mb-5" />,
+  p: (props: JSX.IntrinsicElements['p']) => (
+    <p {...props} className="mb-4 last:mb-0" />
+  ),
   Title: (props: JSX.IntrinsicElements['h1']) => (
     <h1 {...props} className="page-title">
       {props.children}
     </h1>
   ),
   Subtitle: (props: JSX.IntrinsicElements['p']) => (
-    <p className="self-end mt-4 md:pb-1 md:mt-0 times" {...props} />
+    <p className="pb-1 mt-4 mb-4 md:m-0 times" {...props} />
   ),
 
   // COLUMNS
@@ -50,9 +52,9 @@ const components: Record<string, ReactNode> = {
   }) => {
     const { alt, width, height, path, children } = props
     return (
-      <figure>
+      <figure className="my-4 md:my-0">
         <Image alt={alt} src={'/images' + path} height={height} width={width} />
-        {children && <figcaption className="mt-4">{children}</figcaption>}
+        {children && <figcaption className="mt-1">{children}</figcaption>}
       </figure>
     )
   },

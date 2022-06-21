@@ -42,7 +42,7 @@ h2 {
 }
 
 .page-title {
-  @apply union uppercase font-bold md:font-normal text-2xl 2xl:text-[34px];
+  @apply union uppercase font-bold text-2xl 2xl:text-[34px];
 }
 
 button {
