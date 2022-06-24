@@ -1,3 +1,5 @@
+import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
+import { translation } from '@lib/translation'
 import isMobile from 'is-mobile'
 import { MdxProject } from 'src/@types/types'
 import Project from './Project'
@@ -7,6 +9,9 @@ type Props = {
 }
 
 export default function Projects({ projects: allProjects }: Props) {
+  const { locale } = useLocaleContext()
+  const data = translation[locale]
+
   const projects = allProjects
     .map(proj => {
       const newProj = proj as unknown as MdxProject & { open: boolean }
@@ -43,6 +48,7 @@ export default function Projects({ projects: allProjects }: Props) {
   return (
     <div className="gap-2 mx-4 my-16 transition-opacity lg:mx-10 ">
       <div id="artistic">
+        <h2 className="md:hidden">{data.Artistic}</h2>
         {highlightProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null
@@ -59,6 +65,7 @@ export default function Projects({ projects: allProjects }: Props) {
         })}
       </div>
       <div id="comissioned">
+        <h2 className="md:hidden">{data.Comissioned}</h2>
         {otherProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null
