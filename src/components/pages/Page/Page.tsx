@@ -25,6 +25,10 @@ const components: Record<string, ReactNode> = {
   Subtitle: (props: JSX.IntrinsicElements['p']) => (
     <p className="pb-1 mt-4 mb-4 md:m-0 times" {...props} />
   ),
+  em: (props: JSX.IntrinsicElements['em']) => (
+    <em className="times" {...props} />
+  ),
+  i: (props: JSX.IntrinsicElements['i']) => <i className="times" {...props} />,
 
   // COLUMNS
   Row: (props: JSX.IntrinsicElements['div'] | { title: boolean }) => {
