@@ -49,7 +49,7 @@ export default function Projects({ projects: allProjects }: Props) {
     <div className="gap-2 mx-4 my-16 transition-opacity lg:mx-10 ">
       <div id="artistic">
         {highlightProjects.length > 0 && (
-          <h2 className="relative z-30 text-3xl md:hidden times">
+          <h2 className="relative z-30 mb-4 text-3xl md:hidden times">
             {data.Artistic}
           </h2>
         )}
@@ -70,7 +70,7 @@ export default function Projects({ projects: allProjects }: Props) {
       </div>
       <div id="comissioned">
         {otherProjects.length > 0 && (
-          <h2 className="relative z-30 text-3xl md:hidden times">
+          <h2 className="relative z-30 mt-16 mb-4 text-3xl md:hidden times">
             {data.Comissioned}
           </h2>
         )}
