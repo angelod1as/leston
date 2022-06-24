@@ -48,7 +48,11 @@ export default function Projects({ projects: allProjects }: Props) {
   return (
     <div className="gap-2 mx-4 my-16 transition-opacity lg:mx-10 ">
       <div id="artistic">
-        <h2 className="md:hidden">{data.Artistic}</h2>
+        {highlightProjects.length > 0 && (
+          <h2 className="relative z-30 text-3xl md:hidden times">
+            {data.Artistic}
+          </h2>
+        )}
         {highlightProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null
@@ -65,7 +69,11 @@ export default function Projects({ projects: allProjects }: Props) {
         })}
       </div>
       <div id="comissioned">
-        <h2 className="md:hidden">{data.Comissioned}</h2>
+        {otherProjects.length > 0 && (
+          <h2 className="relative z-30 text-3xl md:hidden times">
+            {data.Comissioned}
+          </h2>
+        )}
         {otherProjects.map(({ compiledSource, scope, open }, idx) => {
           if (!scope) {
             return null
