@@ -8,8 +8,8 @@ export const translation = {
     CloseAbout: 'Close About',
     Comissioned: 'Comissioned Projects',
     Artistic: 'Artistic Projects',
-    CloseProject: 'Close project',
-    OpenProject: 'Open project',
+    CloseProject: 'Close Project',
+    OpenProject: 'Open Project',
   },
   'pt-BR': {
     Artist: 'Artista',
@@ -20,7 +20,7 @@ export const translation = {
     About: 'Sobre',
     Comissioned: 'Projetos Comissionados',
     Artistic: 'Projetos Autorais',
-    CloseProject: 'Fechar projeto',
-    OpenProject: 'Abrir projeto',
+    CloseProject: 'Fechar Projeto',
+    OpenProject: 'Abrir Projeto',
   },
 }
