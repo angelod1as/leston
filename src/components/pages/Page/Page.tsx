@@ -26,7 +26,7 @@ const components: Record<string, ReactNode> = {
     <p className="pb-1 mt-4 mb-4 md:m-0 times" {...props} />
   ),
   em: (props: JSX.IntrinsicElements['em']) => (
-    <em className="times" {...props} />
+    <em className="not-italic times" {...props} />
   ),
   i: (props: JSX.IntrinsicElements['i']) => <i className="times" {...props} />,
 
