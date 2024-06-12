@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { Locale } from 'src/@types/types'
 import LocaleContext from './LocaleContext'
+import { FCC, Locale } from '@/@types/types'
 
-const Wrapper: React.FC = ({ children }) => {
+const Wrapper: FCC = ({ children }) => {
   const { locale: routerLocale, defaultLocale } = useRouter()
 
   const [locale, setLocale] = useState<Locale>(

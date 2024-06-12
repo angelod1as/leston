@@ -1,5 +1,5 @@
-import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
-import { Locale } from 'src/@types/types'
+import { Locale } from '@/@types/types'
+import { useLocaleContext } from '@/components/LocaleContext/LocaleContext'
 
 export default function ToTop() {
   const { locale } = useLocaleContext()

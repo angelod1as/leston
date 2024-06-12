@@ -1,39 +1,21 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "@pages/*":["./src/pages/*"],
-      "@components/*":["./src/components/*"],
-      "@test/*":["./src/test/*"],
-      "@lib/*":["./src/lib/*"],
-      "@content/*":["./src/content/*"],
-      "@test/":["./src/test/*"],
-    },
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": [
-    "./src/test/test-helper.tsx",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx", 
-    "src/locales/index.js"  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

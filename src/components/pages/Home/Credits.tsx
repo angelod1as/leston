@@ -1,5 +1,5 @@
+import { Credits as CreditsType } from '@/@types/types'
 import { Fragment } from 'react'
-import { Credits as CreditsType } from 'src/@types/types'
 
 type CreditsProps = {
   credits: CreditsType[]

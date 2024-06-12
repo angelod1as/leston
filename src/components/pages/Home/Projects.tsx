@@ -1,8 +1,8 @@
-import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
-import { translation } from '@lib/translation'
 import isMobile from 'is-mobile'
-import { MdxProject } from 'src/@types/types'
 import Project from './Project'
+import { useLocaleContext } from '@/components/LocaleContext/LocaleContext'
+import { MdxProject } from '@/@types/types'
+import { translation } from '@/lib/translation'
 
 type Props = {
   projects: MdxProject[]

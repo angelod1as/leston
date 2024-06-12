@@ -1,17 +1,17 @@
-import LocaleContext from '@components/LocaleContext'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import '../styles/styles.css'
-import favicon from 'public/favicon/favicon_v01.ico'
-import favicon192 from 'public/favicon/Favicon_v01.png'
-import favicon180 from 'public/favicon/apple-touch-icon-180x180_v01.png'
+import favicon from '../../public/favicon/favicon_v01.ico'
+import favicon192 from '../../public/favicon/Favicon_v01.png'
+import favicon180 from '../../public/favicon/apple-touch-icon-180x180_v01.png'
+import Wrapper from '@/components/LocaleContext'
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <LocaleContext>
+    <Wrapper>
       <FirstHead />
       <Component {...pageProps} />
-    </LocaleContext>
+    </Wrapper>
   )
 }
 

@@ -1,5 +1,5 @@
+import StoneChange from '@/components/StoneChange'
 import ToTop from './ToTop'
-import StoneChange from '@components/StoneChange'
 
 type Props = {
   changeImage: () => void

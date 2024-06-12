@@ -1,4 +1,5 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { PropsWithChildren } from 'react'
 
 // API
 export type Credits = {
@@ -53,3 +54,5 @@ export type About = {
 }
 
 export type Locale = 'pt-BR' | 'en-US'
+
+export type FCC = React.FC<PropsWithChildren>

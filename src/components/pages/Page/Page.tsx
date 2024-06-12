@@ -1,8 +1,9 @@
 import { MDXRemote } from 'next-mdx-remote'
-import Image from 'next/image'
+import Image from "next/image"
 import { ReactNode } from 'react'
-import { MdxPage } from 'src/@types/types'
 import Footer from '../Home/Footer'
+import { MdxPage } from '@/@types/types'
+import { MDXComponents } from 'mdx/types'
 
 type PageProps = {
   pageData: MdxPage
@@ -13,7 +14,7 @@ const titleGrid =
 const columnGrid =
   'gap-y-4 grid md:grid-cols-4 md:gap-x-8 md:gap-y-8 md:col-span-full'
 
-const components: Record<string, ReactNode> = {
+const components: MDXComponents = {
   p: (props: JSX.IntrinsicElements['p']) => (
     <p {...props} className="mb-4 last:mb-0" />
   ),
@@ -57,10 +58,18 @@ const components: Record<string, ReactNode> = {
     const { alt, width, height, path, children } = props
     return (
       <figure className="my-4 md:my-0">
-        <Image alt={alt} src={'/images' + path} height={height} width={width} />
+        <Image
+          alt={alt}
+          src={'/images' + path}
+          height={height}
+          width={width}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
         {children && <figcaption className="mt-1">{children}</figcaption>}
       </figure>
-    )
+    );
   },
   Link: (props: JSX.IntrinsicElements['a']) => (
     <a {...props} target="_blank" rel="noreferrer noopener">
@@ -77,6 +86,8 @@ export const Page = ({ pageData }: PageProps) => {
           <MDXRemote
             compiledSource={pageData.compiledSource}
             components={components}
+            frontmatter={{}}
+            scope={{}}
           />
         </div>
       </div>

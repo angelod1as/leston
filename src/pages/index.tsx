@@ -1,41 +1,41 @@
-import { serialize } from 'next-mdx-remote/serialize'
-import { getProjects, getAbout, getStoneNumber } from '@lib/api'
-import Home from '@components/pages/Home'
-import { About, MdxProject } from 'src/@types/types'
-import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
-import useWindowDimensions from '@lib/useWindowDimensions'
-import { GetStaticProps } from 'next'
-import { useEffect, useState } from 'react'
-import * as Dialog from '@radix-ui/react-dialog'
+import { serialize } from "next-mdx-remote/serialize";
+import { GetStaticProps } from "next";
+import { useEffect, useState } from "react";
+import * as Dialog from "@radix-ui/react-dialog";
+import { About, MdxProject } from "@/@types/types";
+import { useLocaleContext } from "@/components/LocaleContext/LocaleContext";
+import useWindowDimensions from "@/lib/useWindowDimensions";
+import Home from "@/components/pages/Home";
+import { getAbout, getProjects, getStoneNumber } from "@/lib/api";
 
 type ContentProps = {
-  projects: MdxProject[]
-  about: About
-}
+  projects: MdxProject[];
+  about: About;
+};
 
 type Props = {
-  'pt-BR': ContentProps
-  'en-US': ContentProps
-  stoneNumber: number
-}
+  "pt-BR": ContentProps;
+  "en-US": ContentProps;
+  stoneNumber: number;
+};
 
 const Index = (props: Props) => {
-  const [showTitle, setShowTitle] = useState(true)
-  const { locale } = useLocaleContext()
-  const { about, projects } = props[locale]
-  const { stoneNumber } = props
+  const [showTitle, setShowTitle] = useState(true);
+  const { locale } = useLocaleContext();
+  const { about, projects } = props[locale];
+  const { stoneNumber } = props;
 
-  const { height, scroll } = useWindowDimensions()
-  const HEIGHT_SCROLL = 0.75
-  const dimension = scroll / HEIGHT_SCROLL / height
+  const { height, scroll } = useWindowDimensions();
+  const HEIGHT_SCROLL = 0.75;
+  const dimension = scroll / HEIGHT_SCROLL / height;
 
   useEffect(() => {
     if (dimension < 2) {
-      setShowTitle(true)
+      setShowTitle(true);
     } else {
-      setShowTitle(false)
+      setShowTitle(false);
     }
-  }, [dimension])
+  }, [dimension]);
 
   return (
     <Dialog.Root>
@@ -54,20 +54,20 @@ const Index = (props: Props) => {
         </div>
       </div>
     </Dialog.Root>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const stoneNumber = getStoneNumber()
+  const stoneNumber = getStoneNumber();
   const getLocaleProjects = async (locale: string) => {
     const projectsData = getProjects(locale, [
-      'content',
-      'excerpt',
-      'images',
-      'credits',
-    ])
+      "content",
+      "excerpt",
+      "images",
+      "credits",
+    ]);
 
     return await Promise.all(
       projectsData.map(async ({ content, data }) => {
@@ -75,36 +75,36 @@ export const getStaticProps: GetStaticProps = async () => {
           ...data,
           excerpt: (await serialize(data.excerpt)).compiledSource,
           extraInfo: (await serialize(data.extraInfo)).compiledSource,
-        }
+        };
 
-        return await serialize(content, { scope: parsedData })
+        return await serialize(content, { scope: parsedData });
       })
-    )
-  }
+    );
+  };
 
   const getLocaleAbouts = async (locale: string) => {
-    const aboutData = getAbout(locale, ['content'])
+    const aboutData = getAbout(locale, ["content"]);
 
     const [about, about2, contact] = await Promise.all(
       aboutData.map(
         async ({ content, data }) => await serialize(content, { scope: data })
       )
-    )
+    );
 
-    return { about, about2, contact }
-  }
+    return { about, about2, contact };
+  };
 
   const props = {
-    'pt-BR': {
-      projects: await getLocaleProjects('pt'),
-      about: await getLocaleAbouts('pt'),
+    "pt-BR": {
+      projects: await getLocaleProjects("pt"),
+      about: await getLocaleAbouts("pt"),
     },
-    'en-US': {
-      projects: await getLocaleProjects('en'),
-      about: await getLocaleAbouts('en'),
+    "en-US": {
+      projects: await getLocaleProjects("en"),
+      about: await getLocaleAbouts("en"),
     },
     stoneNumber,
-  }
+  };
 
-  return { props }
-}
+  return { props };
+};

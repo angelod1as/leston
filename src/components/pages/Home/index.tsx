@@ -1,9 +1,10 @@
 import { memo, useEffect, useState } from 'react'
-import { About, MdxProject } from 'src/@types/types'
 import Footer from './Footer'
 import Header from './Header'
 import Projects from './Projects'
 import Stone from './Stone'
+import { About, MdxProject } from '@/@types/types'
+import { StaticImageData } from "next/image"
 
 type Props = {
   projects: MdxProject[]
@@ -22,7 +23,7 @@ export default memo(function Home({
 
   const getImage = async () => {
     const number = Math.floor(Math.random() * stoneNumber) + 1
-    const image = await import(`public/images/stone/${number}.png`)
+    const image = await import(`../../../../public/images/stone/${number}.png`)
     return image
   }
 

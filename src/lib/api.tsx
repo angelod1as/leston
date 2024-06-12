@@ -1,7 +1,7 @@
+import { FileData, FrontMatter, PageData } from '@/@types/types'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
-import { FileData, FrontMatter, PageData } from 'src/@types/types'
 
 const contentDir = join(process.cwd(), 'src', 'content')
 // const localesDir = [join(contentDir, 'en'), join(contentDir, 'pt')]

@@ -1,11 +1,11 @@
-import ImageCarousel from '@components/ImageCarousel'
-import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
-import { MDX } from '@components/MDX'
-import { translation } from '@lib/translation'
 import { FC, useState } from 'react'
 import { UnmountClosed } from 'react-collapse'
-import { FrontMatter } from 'src/@types/types'
 import { Credits } from './Credits'
+import { FrontMatter } from '@/@types/types'
+import { useLocaleContext } from '@/components/LocaleContext/LocaleContext'
+import { translation } from '@/lib/translation'
+import ImageCarousel from '@/components/ImageCarousel'
+import { MDX } from '@/components/MDX'
 
 type Props = {
   scope: FrontMatter

@@ -1,14 +1,21 @@
-import { MDXRemote } from 'next-mdx-remote'
-import { ReactNode } from 'react'
+import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote'
+import type { MDXComponents } from 'mdx/types'
 
-type MDXProps = {
-  compiledSource: string
-}
-
-const components: Record<string, ReactNode> = {
+const components: MDXComponents = {
   p: (props: JSX.IntrinsicElements['p']) => <p {...props} className="mb-5" />,
 }
 
+type MDXProps = {
+  compiledSource: MDXRemoteProps['compiledSource']
+}
+
 export const MDX = ({ compiledSource }: MDXProps) => {
-  return <MDXRemote compiledSource={compiledSource} components={components} />
+  return (
+    <MDXRemote
+      compiledSource={compiledSource}
+      components={components}
+      scope={{}}
+      frontmatter={{}}
+    />
+  )
 }

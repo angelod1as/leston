@@ -1,5 +1,5 @@
-import { useLocaleContext } from '@components/LocaleContext/LocaleContext'
-import { Locale } from 'src/@types/types'
+import { Locale } from '@/@types/types'
+import { useLocaleContext } from '../LocaleContext/LocaleContext'
 
 export default function LangSwitcher() {
   const { locale, changeLocale } = useLocaleContext()

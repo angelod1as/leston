@@ -1,8 +1,8 @@
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { Images } from 'src/@types/types'
-import Image from 'next/image'
+import Image from "next/image"
 import Script from 'next/script'
+import { Images } from '@/@types/types'
 
 type Props = {
   images: Images[]
@@ -72,12 +72,15 @@ export default function ImageCarousel({ images, isOpen }: Props) {
                   <Image
                     height={height}
                     width={width}
-                    layout="responsive"
                     src={'/images' + path}
                     alt={alt}
-                  />
+                    sizes="100vw"
+                    style={{
+                      width: "100%",
+                      height: "auto"
+                    }} />
                 </div>
-              )
+              );
             }
             return (
               <div key={'missing' + idx}>
@@ -87,7 +90,7 @@ export default function ImageCarousel({ images, isOpen }: Props) {
           })}
         </Carousel>
       </div>
-    )
+    );
   }
 
   const { video, height, width, path, alt } = images[0]
@@ -102,9 +105,12 @@ export default function ImageCarousel({ images, isOpen }: Props) {
             width={width}
             src={'/images' + path}
             alt={alt}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
       )}
     </div>
-  )
+  );
 }
